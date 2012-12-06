@@ -82,4 +82,4 @@ if(displayCarriage) {
 %translate([0, 0, 80]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
 // motors
-translate([-triangleLength/2+getMotorPlateSize()[0]/2,20,getMotorPlateSize()[1]/2]) rotate([90,0,0]) motorPlate(3);
+translate([-triangleLength/2-20,20+3,-20]) rotate([90,0,0]) motorPlate(3);
