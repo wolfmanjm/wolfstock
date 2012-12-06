@@ -2,6 +2,7 @@ use <makerslide.scad>;
 use <vwheel_single_bearing_b17001_rev_2.scad>;
 use <carriage_plate_standard_c14005_rev_2.scad>;
 use <misumi-parts-library.scad>;
+use <motor-mount.scad>
 
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
@@ -78,4 +79,7 @@ if(displayCarriage) {
 	translate([0,offsetY(triangleLength)+20,slideht/4]) rotate([90,0,0]) carriage_assy();
 }
 
-%translate([0, 0, 40]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
+%translate([0, 0, 80]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
+
+// motors
+translate([-triangleLength/2+getMotorPlateSize()[0]/2,20,getMotorPlateSize()[1]/2]) rotate([90,0,0]) motorPlate(3);
