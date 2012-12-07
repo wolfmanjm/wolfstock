@@ -72,7 +72,7 @@ if(useAngleBrackets) {
 	translate([triangleLength/2+20,0,slideht]) rotate([180,0,90]) hblsd5();
 }
 
-displayCarriage= true;
+displayCarriage= false;
 if(displayCarriage) {
 	// carriages
 	translate([-(triangleLength/2+20),0,80]) rotate([90,0,90]) carriage_assy();
@@ -86,4 +86,5 @@ if(displayCarriage) {
 %translate([0, 0, 80]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
 // motors
-translate([-triangleLength/2-20,20+3,-20]) rotate([90,0,0]) motorPlate(3);
+translate([-triangleLength/2+3,20,3]) rotate([90,0,0]) motorPlate(3);
+translate([triangleLength/2-45,-26,3]) rotate([90,0,90]) motorPlate(3);
