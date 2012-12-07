@@ -3,6 +3,7 @@ use <vwheel_single_bearing_b17001_rev_2.scad>;
 use <carriage_plate_standard_c14005_rev_2.scad>;
 use <misumi-parts-library.scad>;
 use <motor-mount.scad>
+use <arm-plate.scad>
 
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
@@ -71,12 +72,15 @@ if(useAngleBrackets) {
 	translate([triangleLength/2+20,0,slideht]) rotate([180,0,90]) hblsd5();
 }
 
-displayCarriage= false;
+displayCarriage= true;
 if(displayCarriage) {
 	// carriages
-	translate([-(triangleLength/2+20),0,slideht/4]) rotate([90,0,90]) carriage_assy();
+	translate([-(triangleLength/2+20),0,80]) rotate([90,0,90]) carriage_assy();
 	translate([(triangleLength/2+20),0,slideht/4]) rotate([90,0,-90]) carriage_assy();
 	translate([0,offsetY(triangleLength)+20,slideht/4]) rotate([90,0,0]) carriage_assy();
+
+	// arm plate
+	translate([-(triangleLength/2-14),0,80]) rotate([90,0,90]) armPlate();
 }
 
 %translate([0, 0, 80]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
