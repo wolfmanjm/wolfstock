@@ -10,17 +10,30 @@ module hfs60() {
 }
 
 module hblss5() {
-	import("hblss5.stl");
+	import("misumi/hblss5.stl");
 }
 module hblfsnf5() {
-	import("hblfsnf5.stl");
+	import("misumi/hblfsnf5.stl");
 }
 module hblfsn5() {
-	import("hblfsn5.stl");
+	import("misumi/hblfsn5.stl");
 }
 module hblsd5() {
 	color("blue") import("misumi/hblsd5.stl");
 }
+
+module hblfsd5() {
+	color("blue") import("misumi/hblfsd5.stl");
+}
+
+module hblts5() {
+	color("blue") import("misumi/hblts5.stl");
+}
+
+module hblfssw5() {
+	color("blue") import("misumi/hblfssw5.stl");
+}
+
 module flatbracket2x2() {
 	// HPTSd5
 	difference() {
@@ -50,6 +63,27 @@ module tbracket() {
 			#translate([9, 9+20, 0]) cylinder(r= 5.5/2, h= 4);
 			#translate([38-9, 9, 0]) cylinder(r= 5.5/2, h= 4);
 			#translate([38-9, 9+20, 0]) cylinder(r= 5.5/2, h= 4);
+		}
+	}
+}
+
+module tbracket1() {
+	// HPTTS5
+	//thick= 2.3; // real
+	thick= 4; // printable
+	translate([-100/2, 0,0]) difference() {
+		 union() {
+			color("blue"){ 
+				cube([100, 18, thick]);
+				translate([100/2-18/2,18,0]) cube([18, 90-18, thick]);
+			}
+		}
+		#translate([10, 9, -2]) cylinder(r= 5.5/2, h= thick+4);
+		#translate([100-10, 9, -2]) cylinder(r= 5.5/2, h= thick+4);
+		#translate([50, 9, -2]) cylinder(r= 5.5/2, h= thick+4);
+		translate([100/2-18/2,18,0]) {
+			#translate([9, 90-18-10, -2]) cylinder(r= 5.5/2, h= thick+4);
+			#translate([9, 90-18-10-30, -2]) cylinder(r= 5.5/2, h= thick+4);
 		}
 	}
 }

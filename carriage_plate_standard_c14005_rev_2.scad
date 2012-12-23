@@ -8,7 +8,7 @@
 centeredCarriagePlate();
 
 module centeredCarriagePlate() {
-	translate([-90/2,-150/2,0]) standard_wheel_carriage_plate();
+	translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
 }
 
 module standard_wheel_carriage_plate(thickness=3.175) {

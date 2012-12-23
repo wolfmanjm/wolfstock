@@ -2,7 +2,7 @@ use <../MCAD/motors.scad>
 use <../myLibs.scad>
 use <../MCAD/triangles.scad>
 
-w= 52;
+w= 54;
 h= 50;
 
 module motorAttachment(thickness=4) {
@@ -31,13 +31,13 @@ module buttress(thickness=4) {
 module motorPlate(thickness=4, buttressThickness=4) {
 	union() {
 		motorAttachment(thickness);
-		translate([0,0,0]) rotate([90,0,0]) attachmentPlate(thickness);
-		translate([buttressThickness,0,0]) rotate([0,-90,0]) buttress(buttressThickness);
-		translate([w,0,0]) rotate([0,-90,0]) buttress(buttressThickness);
+		translate([0,0.1,0]) rotate([90,0,0]) attachmentPlate(thickness);
+		translate([buttressThickness,-0.1,0]) rotate([0,-90,0]) buttress(buttressThickness);
+		translate([w,-0.1,0]) rotate([0,-90,0]) buttress(buttressThickness);
 	}
 }
 
-motorPlate(3, 3);
+motorPlate(5, 5);
 //motorAttachment();
 //attachmentPlate();
 //buttress();
