@@ -112,9 +112,9 @@ if(displayCarriage) {
 	translate([0,offsetY(triangleLength)+20,carriageHt]) rotate([90,0,0]) carriage_assy();
 
 	// arm plate
-	translate([-(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("arm-plate-right.stl");
-	translate([(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("arm-plate-left.stl");
-	translate([0,offsetY(triangleLength)-22,carriageHt-8]) rotate([0,0,0]) import("arm-plate-back.stl");
+	translate([-(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-right.stl");
+	translate([(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-left.stl");
+	translate([0,offsetY(triangleLength)-22,carriageHt-8]) rotate([0,0,0]) import("stl/arm-plate-back.stl");
 }
 
 // triangle
@@ -135,7 +135,7 @@ translate([triangleLength/2-55,20,3]) rotate([90,0,0]) motorPlate(3);
 translate([0,offsetY(triangleLength)-22,slideht-40]) tensioner_608();
 
 // effector
-color("red") translate([0,offsetY(triangleLength)/2,90+50]) rotate([0,0,60]) import("effector.stl");
+color("red") translate([0,offsetY(triangleLength)/2,90+50]) rotate([0,0,60]) import("stl/effector.stl");
 
 // arms
 armr= 0.344*25.4/2;
