@@ -50,6 +50,10 @@ module coupler() {
 // print upside down with square at top makes it easier to insert square
 rotate([180,0,0]) coupler();
 
+// add a platform for it to sit on as it is thinner at the bottom it could topple
+// or use a brim, but sfact doesn't support brom for multiple prints
+#translate([0,0,-l/2-0.5]) cylinder(r=dia/2,h=0.3); // one layer high
+
 //rod_acceptor();
 
 //mouth();
