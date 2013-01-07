@@ -32,7 +32,7 @@ module tensioner_body() {
 		}
 		rotate([0, 0, rotate_z]) translate([offset_x, offset_y, -4]) {
 			// 1/4" hole for tensioner
-			cylinder(r=(4)/2+0.2, h=50, center=true, $fn=12);
+			cylinder(r=(4)/2+0.3, h=50, center=true, $fn=12);
 		}
 	}
 }

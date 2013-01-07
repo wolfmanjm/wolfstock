@@ -3,7 +3,6 @@ use <vwheel_single_bearing_b17001_rev_2.scad>;
 use <carriage_plate_standard_c14005_rev_2.scad>;
 use <misumi-parts-library.scad>;
 use <motor-mount.scad>
-use <arm-plate.scad>
 use <support-bracket.scad>
 use <tensioner_608.scad>
 
@@ -104,15 +103,18 @@ if(useAngleBrackets) {
 }
 
 
-displayCarriage= false;
+displayCarriage= true;
+carriageHt= 500;
 if(displayCarriage) {
 	// carriages
-	translate([-(triangleLength/2+20),0,80]) rotate([90,0,90]) carriage_assy();
-	translate([(triangleLength/2+20),0,slideht/4]) rotate([90,0,-90]) carriage_assy();
-	translate([0,offsetY(triangleLength)+20,slideht/4]) rotate([90,0,0]) carriage_assy();
+	translate([-(triangleLength/2+20),0,carriageHt]) rotate([90,0,90]) carriage_assy();
+	translate([(triangleLength/2+20),0,carriageHt]) rotate([90,0,-90]) carriage_assy();
+	translate([0,offsetY(triangleLength)+20,carriageHt]) rotate([90,0,0]) carriage_assy();
 
 	// arm plate
-	translate([-(triangleLength/2-14),0,80]) rotate([90,0,90]) armPlate();
+	translate([-(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("arm-plate-right.stl");
+	translate([(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("arm-plate-left.stl");
+	translate([0,offsetY(triangleLength)-22,carriageHt-8]) rotate([0,0,0]) import("arm-plate-back.stl");
 }
 
 // triangle
@@ -131,3 +133,11 @@ translate([triangleLength/2-55,20,3]) rotate([90,0,0]) motorPlate(3);
 
 // tensioners
 translate([0,offsetY(triangleLength)-22,slideht-40]) tensioner_608();
+
+// effector
+color("red") translate([0,offsetY(triangleLength)/2,90+50]) rotate([0,0,60]) import("effector.stl");
+
+// arms
+armr= 0.344*25.4/2;
+armsp= 57.7;
+color("black") translate([-armsp/2,offsetY(triangleLength)/2+armsp,90+50]) rotate([-20,0,0]) cylinder(r=armr, h= 400);
