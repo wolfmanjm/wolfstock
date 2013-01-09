@@ -10,7 +10,7 @@ githubiverse:
     title: "Wolfstock a Kossel derivative"
     author: Jim Morris
     license: GPL3
-    tags: [3d printing, kossel, rostock]
+    tags: [3d printing, delta 3d printer, kossel, rostock]
 
     ## Github project parameters.
     github:
