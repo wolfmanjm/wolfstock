@@ -22,7 +22,7 @@ githubiverse:
     ## The names of directories where any images, source and stl files associated with the project can be found.
     img_dir: img
     stl_dir: stl
-    src_dir: .
+    src_dir: src
 
     ## The headline image
     lead_image: wolfstock.png
