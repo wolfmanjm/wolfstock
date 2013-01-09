@@ -1,6 +1,8 @@
 wolfstock
 =========
 
+__NOTE__ This is a Work In Progress
+
 A 3d Delta printer based on Kossel &amp; Ostoc
 
 [Githubiverse page](http://wolfmanjm.github.com/wolfstock)
