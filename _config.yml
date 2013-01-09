@@ -32,7 +32,7 @@ githubiverse:
     description_file: README.md
 
     ## Preview the first STL in the list when the page loads.
-    autoload_stl: true
+    autoload_stl: false
 
     ## Show a github "fork me" ribbon in the top righthand corner of the page.
     show_forkme_ribbon: true
