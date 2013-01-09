@@ -10,7 +10,7 @@ githubiverse:
     title: "Wolfstock a Kossel derivative"
     author: Jim Morris
     license: GPL3
-    tags: [3d printing, delta 3d printer, kossel, rostock]
+    tags: [3d printing, kossel, rostock]
 
     ## Github project parameters.
     github:
@@ -32,7 +32,7 @@ githubiverse:
     description_file: README.md
 
     ## Preview the first STL in the list when the page loads.
-    autoload_stl: false
+    autoload_stl: true
 
     ## Show a github "fork me" ribbon in the top righthand corner of the page.
     show_forkme_ribbon: true
