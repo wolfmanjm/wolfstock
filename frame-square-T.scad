@@ -10,7 +10,7 @@ function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
 triangleLength= 500;
-armLength= 450;
+armLength= 430;
 
 module carriage_assy() {
 	wheelelevation= -3 + -(0.25) *25.4;
@@ -103,7 +103,7 @@ if(useAngleBrackets) {
 }
 
 
-displayCarriage= true;
+displayCarriage= false;
 carriageHt= 500;
 if(displayCarriage) {
 	// carriages
@@ -118,14 +118,26 @@ if(displayCarriage) {
 }
 
 // triangle
-%translate([0, 0, 80]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
+%translate([0, 0, -20]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
+// Biggest dia glass that fits build area
+glassDia= 510; // mm
 // build area
 color("green") intersection() {
-	translate([0,offsetY(triangleLength)+20,90]) cylinder(r=armLength,h=2, $fn=80);
-	translate([triangleLength/2+20,0,90]) cylinder(r=armLength,h=2, $fn=80);
-	translate([-(triangleLength/2+20),0,90]) cylinder(r=armLength,h=2, $fn=80);
+	translate([0,offsetY(triangleLength)-25-50,90]) cylinder(r=armLength+50,h=2, $fn=80);
+	translate([triangleLength/2-25-50,0,90]) cylinder(r=armLength+50,h=2, $fn=80);
+	translate([-triangleLength/2+25+50,0,90]) cylinder(r=armLength+50,h=2, $fn=80);
 }
+%translate([0,offsetY(triangleLength)-25,90]) cylinder(r=50,h=3, $fn=80);
+%translate([triangleLength/2-25,0,90]) cylinder(r=50,h=3, $fn=80);
+%translate([-triangleLength/2+25,0,90]) cylinder(r=50,h=3, $fn=80);
+// biggest circle ~20" diameter
+echo("glass diameter: ", glassDia/25.4, " in");
+%translate([0,offsetY(triangleLength)/2-80,95]) cylinder(r=glassDia/2,h=3, $fn=80);
+echo("Center: ", offsetY(triangleLength)/2-80);
+// biggest square ~17 1/2"
+%translate([0,offsetY(triangleLength)/2-90,100]) cube([450,450,3], center=true);
+
 
 // motors
 translate([-triangleLength/2+3,20,3]) rotate([90,0,0]) motorPlate(3);
@@ -135,7 +147,7 @@ translate([triangleLength/2-55,20,3]) rotate([90,0,0]) motorPlate(3);
 translate([0,offsetY(triangleLength)-22,slideht-40]) tensioner_608();
 
 // effector
-color("red") translate([0,offsetY(triangleLength)/2,90+50]) rotate([0,0,60]) import("stl/effector.stl");
+color("red") translate([0,offsetY(triangleLength)/2-80,90+50]) rotate([0,0,60]) import("stl/effector.stl");
 
 // arms
 armr= 0.344*25.4/2;
