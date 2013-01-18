@@ -10,7 +10,8 @@ function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
 triangleLength= 500;
-armLength= 430;
+armLength= 432;
+beamLength= 500;
 
 module carriage_assy() {
 	wheelelevation= -3 + -(0.25) *25.4;
@@ -29,7 +30,7 @@ translate([triangleLength/2+20,0,slideht/2]) rotate([0,0,180]) makerslide(slideh
 translate([-(triangleLength/2+20),0,slideht/2]) rotate([0,0,0]) makerslide(slideht);
 
 // 600mm
-frontbeamlength= triangleLength+40+40+20; // allow for makerbeam and brackets + 10mm for adjustment each side
+frontbeamlength= beamLength+40+40+20; // allow for makerbeam and brackets + 10mm for adjustment each side
 echo("front beam 2040: ", frontbeamlength);
 // front bottom beam
 translate([-(frontbeamlength)/2,0,-10]) rotate([90,90,0]) hfs2040(frontbeamlength);
@@ -38,7 +39,7 @@ translate([-(frontbeamlength)/2,0,-10]) rotate([90,90,0]) hfs2040(frontbeamlengt
 translate([-(frontbeamlength)/2,0,slideht+10]) rotate([90,90,0]) hfs2040(frontbeamlength);
 
 // 460mm
-centerBeamLength= round(offsetY(triangleLength))+20+7;
+centerBeamLength= round(offsetY(beamLength))+20+7;
 echo("Bottom and Top center 2040: ", centerBeamLength);
 // bottom center beam
 translate([0,20,-10]) rotate([0,90,0]) hfs2040(centerBeamLength);
@@ -103,7 +104,7 @@ if(useAngleBrackets) {
 }
 
 
-displayCarriage= false;
+displayCarriage= true;
 carriageHt= 500;
 if(displayCarriage) {
 	// carriages
@@ -112,31 +113,43 @@ if(displayCarriage) {
 	translate([0,offsetY(triangleLength)+20,carriageHt]) rotate([90,0,0]) carriage_assy();
 
 	// arm plate
-	translate([-(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-right.stl");
-	translate([(triangleLength/2-30),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-left.stl");
+	translate([-(triangleLength/2-15),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-right.stl");
+	translate([(triangleLength/2-15),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-left.stl");
 	translate([0,offsetY(triangleLength)-22,carriageHt-8]) rotate([0,0,0]) import("stl/arm-plate-back.stl");
 }
 
 // triangle
 %translate([0, 0, -20]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
-// Biggest dia glass that fits build area
-glassDia= 510; // mm
+
+// Show Build area
+deadArea= 90;
 // build area
-color("green") intersection() {
-	translate([0,offsetY(triangleLength)-25-50,90]) cylinder(r=armLength+50,h=2, $fn=80);
-	translate([triangleLength/2-25-50,0,90]) cylinder(r=armLength+50,h=2, $fn=80);
-	translate([-triangleLength/2+25+50,0,90]) cylinder(r=armLength+50,h=2, $fn=80);
+color("green") difference() {
+  intersection() {
+	translate([0,offsetY(triangleLength)-22,90]) cylinder(r=armLength+50,h=2, $fn=80);
+	translate([triangleLength/2-22,0,90]) cylinder(r=armLength+50,h=2, $fn=80);
+	translate([-triangleLength/2+22,0,90]) cylinder(r=armLength+50,h=2, $fn=80);
+  }
+  translate([0,offsetY(triangleLength)-deadArea/2,90]) cube([600, deadArea, 10], center=true);
+  translate([triangleLength/2-deadArea/2,0,90]) rotate([0,0,-30]) cube([deadArea, 600, 10], center=true);
+  translate([-triangleLength/2+deadArea/2,0,90]) rotate([0,0,30]) cube([deadArea, 600, 10], center=true);
 }
-%translate([0,offsetY(triangleLength)-25,90]) cylinder(r=50,h=3, $fn=80);
-%translate([triangleLength/2-25,0,90]) cylinder(r=50,h=3, $fn=80);
-%translate([-triangleLength/2+25,0,90]) cylinder(r=50,h=3, $fn=80);
-// biggest circle ~20" diameter
+
+color("red") translate([0,offsetY(triangleLength)-30,100]) {
+	rotate([0,0,35]) translate([-20,-armLength,0]) cube([40, armLength, 1]);
+	rotate([0,0,-35]) translate([-20,-armLength,0]) cube([40, armLength, 1]);
+}
+
+// Biggest dia glass that fits build area
+glassDia= 360; // mm
+// biggest circle ~17" diameter
+centerY= tan(30)*(triangleLength/2);
 echo("glass diameter: ", glassDia/25.4, " in");
-%translate([0,offsetY(triangleLength)/2-80,95]) cylinder(r=glassDia/2,h=3, $fn=80);
-echo("Center: ", offsetY(triangleLength)/2-80);
-// biggest square ~17 1/2"
-%translate([0,offsetY(triangleLength)/2-90,100]) cube([450,450,3], center=true);
+%translate([0,centerY,95]) cylinder(r=glassDia/2,h=3, $fn=80);
+echo("Calculated Center: ", 0, centerY);
+// biggest square
+%translate([0,centerY,100]) rotate([0,0,45]) cube([330,330,3], center=true);
 
 
 // motors
@@ -147,9 +160,9 @@ translate([triangleLength/2-55,20,3]) rotate([90,0,0]) motorPlate(3);
 translate([0,offsetY(triangleLength)-22,slideht-40]) tensioner_608();
 
 // effector
-color("red") translate([0,offsetY(triangleLength)/2-80,90+50]) rotate([0,0,60]) import("stl/effector.stl");
+color("red") translate([0,centerY,90+50]) rotate([0,0,60]) import("stl/effector.stl");
 
 // arms
 armr= 0.344*25.4/2;
 armsp= 57.7;
-color("black") translate([-armsp/2,offsetY(triangleLength)/2+armsp,90+50]) rotate([-20,0,0]) cylinder(r=armr, h= 400);
+color("black") translate([-armsp/2,offsetY(triangleLength)-35,carriageHt-20]) rotate([-30,0,-30]) translate([0,0,-400]) cylinder(r=armr, h= 400);

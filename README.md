@@ -6,7 +6,8 @@ __NOTE__ This is a Work In Progress
 A 3d Delta printer based on Kossel &amp; Ostoc
 
 [Githubiverse page](http://wolfmanjm.github.com/wolfstock)
-
+[First dry run](http://youtu.be/tn_te7D_SVE)
+ 
 This is a Makerslide and Misumi based frame, using fishing line drive
 ala Kossel, and has square T Frame based on an Ostoc design.
 
