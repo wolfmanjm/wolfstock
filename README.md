@@ -10,4 +10,4 @@ I use Misumi extrusions and brackets, and the scad files use the 3d
 cad programs from Misumi for display purposes.
 
 It is based on a T shape where the Makerslide towers are at right
-angles, which siplifies the attachment points.
+angles, which simplifies the attachment points.
