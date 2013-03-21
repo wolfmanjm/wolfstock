@@ -8,6 +8,7 @@ cone_r1 = height/2;
 cone_r2 = 5.5;
 
 echo("Separation= ", separation);
+echo("Radius= ", radius);
 
 difference() {
   union() {
@@ -38,3 +39,6 @@ difference() {
       cylinder(r=2.2, h=2*height, center=true, $fn=12);
   }
 }
+
+%cylinder(r= radius, h=2);
+%rotate([0,90,180]) translate([0, radius, 0]) cylinder(r= 3/2, h= separation, center=true);

@@ -71,6 +71,39 @@ module printPlate() {
 	translate([-30,0,0]) rotate([90,0,0]) sidePlate();
 }
 
-printPlate();
+//printPlate();
+modelBack();
 
 //%translate([0,0,-3.175-thickness]) rotate([0,0,-90]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
+
+module modelSide() {
+	sidePlate();
+	
+	
+	separation= 51.708;
+	ox=  sin(30) * 41.5;
+	oy=  sin(30) * 9;
+	echo("Offset= ", ox, oy);
+	%translate([oy, -8.5, ox]) rotate([0,-60,0]){
+		cylinder(r= 3/2, h= separation, center=true, $fn=64);
+		cylinder(r=4/2, h= 1, center=true);
+	}
+	
+	color("red") { translate([0,-8.5,50/2]) cube([.1,2, 50], center=true); }
+	color("red") { %translate([0,-8.5,offset]) rotate([0,30,0]) translate([0,0,50/2]) cube([.1,2, 50], center=true); }
+}
+
+module modelBack() {
+	backPlate();
+	
+	separation= 51.708;
+	ox= 6.5;
+	oy= 0;
+	echo("Offset= ", ox, oy);
+	%translate([oy, -8.5, ox]) rotate([0,90,0]){
+		cylinder(r= 3/2, h= separation, center=true, $fn=64);
+		cylinder(r=4/2, h= 1, center=true);
+	}
+	
+	color("red") { translate([0,-8.5,50/2]) cube([.1,2, 50], center=true); }
+}

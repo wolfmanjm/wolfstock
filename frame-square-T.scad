@@ -9,6 +9,7 @@ use <tensioner_608.scad>
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
+bTriangleLength= 429.5;
 triangleLength= 500;
 armLength= 432;
 beamLength= 500;
@@ -25,7 +26,11 @@ module carriage_assy() {
 
 slideht= 1000;
 // slides
-translate([0,offsetY(triangleLength)+20,slideht/2]) rotate([0,0,-90]) makerslide(slideht);
+//translate([0,offsetY(triangleLength)+20,slideht/2]) rotate([0,0,-90]) makerslide(slideht);
+// back slide is closer
+bsy= 371.96+4.5+6.5+14.7;
+translate([0,bsy+20,slideht/2]) rotate([0,0,-90]) makerslide(slideht);
+
 translate([triangleLength/2+20,0,slideht/2]) rotate([0,0,180]) makerslide(slideht);
 translate([-(triangleLength/2+20),0,slideht/2]) rotate([0,0,0]) makerslide(slideht);
 
@@ -41,6 +46,8 @@ translate([-(frontbeamlength)/2,0,slideht+10]) rotate([90,90,0]) hfs2040(frontbe
 // 460mm
 centerBeamLength= round(offsetY(beamLength))+20+7;
 echo("Bottom and Top center 2040: ", centerBeamLength);
+echo("Z tower from back= ", centerBeamLength-(bsy+20)+20);
+
 // bottom center beam
 translate([0,20,-10]) rotate([0,90,0]) hfs2040(centerBeamLength);
 
@@ -91,7 +98,7 @@ if(useLBrackets) {
 useAngleBrackets= true;
 if(useAngleBrackets) {
 	// back
-	translate([0,offsetY(triangleLength+23),0]) rotate([-90,180,0]) hblfsnf5();
+	#translate([0,(centerBeamLength+20)-(centerBeamLength-(bsy+20)+20),0]) rotate([-90,180,0]) hblfsnf5();
 	translate([20,offsetY(triangleLength+23),0]) rotate([-90,180,0]) hblfsnf5();
 	translate([0,offsetY(triangleLength+23),slideht]) rotate([-90,0,0]) hblfsnf5();
 	translate([-20,offsetY(triangleLength+23),slideht]) rotate([-90,0,0]) hblfsnf5();
@@ -110,17 +117,20 @@ if(displayCarriage) {
 	// carriages
 	translate([-(triangleLength/2+20),0,carriageHt]) rotate([90,0,90]) carriage_assy();
 	translate([(triangleLength/2+20),0,carriageHt]) rotate([90,0,-90]) carriage_assy();
-	translate([0,offsetY(triangleLength)+20,carriageHt]) rotate([90,0,0]) carriage_assy();
+	translate([0,bsy+20,carriageHt]) rotate([90,0,0]) carriage_assy();
 
 	// arm plate
 	translate([-(triangleLength/2-15),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-right.stl");
 	translate([(triangleLength/2-15),0,carriageHt-15]) rotate([0,0,90]) import("stl/arm-plate-left.stl");
-	translate([0,offsetY(triangleLength)-22,carriageHt-8]) rotate([0,0,0]) import("stl/arm-plate-back.stl");
+	translate([0,bsy-14.7,carriageHt-8]) rotate([0,0,0]) import("stl/arm-plate-back.stl");
 }
 
 // triangle
 %translate([0, 0, -20]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
+// build triangle
+btl= bTriangleLength;
+%translate([0, 4.5, carriageHt-20]) polygon(points=[[-btl/2,0],[0,offsetY(btl)],[btl/2,0]], paths=[[0,1,2]]);
 
 // Show Build area
 deadArea= 90;
@@ -136,6 +146,7 @@ color("green") difference() {
   translate([-triangleLength/2+deadArea/2,0,90]) rotate([0,0,30]) cube([deadArea, 600, 10], center=true);
 }
 
+// restricted traxxas angles
 color("red") translate([0,offsetY(triangleLength)-30,100]) {
 	rotate([0,0,35]) translate([-20,-armLength,0]) cube([40, armLength, 1]);
 	rotate([0,0,-35]) translate([-20,-armLength,0]) cube([40, armLength, 1]);
@@ -144,7 +155,7 @@ color("red") translate([0,offsetY(triangleLength)-30,100]) {
 // Biggest dia glass that fits build area
 glassDia= 360; // mm
 // biggest circle ~17" diameter
-centerY= tan(30)*(triangleLength/2);
+centerY= tan(30)*(bTriangleLength/2);
 echo("glass diameter: ", glassDia/25.4, " in");
 %translate([0,centerY,95]) cylinder(r=glassDia/2,h=3, $fn=80);
 echo("Calculated Center: ", 0, centerY);
@@ -165,4 +176,4 @@ color("red") translate([0,centerY,90+50]) rotate([0,0,60]) import("stl/effector.
 // arms
 armr= 0.344*25.4/2;
 armsp= 57.7;
-color("black") translate([-armsp/2,offsetY(triangleLength)-35,carriageHt-20]) rotate([-30,0,-30]) translate([0,0,-400]) cylinder(r=armr, h= 400);
+color("black") translate([-armsp/2,bsy-14.5-6.5,carriageHt-20]) rotate([-30,0,-30]) translate([0,0,-430]) cylinder(r=armr, h= 430);
