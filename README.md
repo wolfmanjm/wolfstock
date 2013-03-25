@@ -11,6 +11,7 @@ A 3d Delta printer based on Kossel &amp; Ostoc
 * [Homing](http://www.youtube.com/watch?v=1lDb-qOh4fo)
 * [dry print and crash](http://www.youtube.com/watch?v=1lDb-qOh4fo)
 * [First real print](http://www.youtube.com/watch?v=hB6xe0kcC_w)
+* [Printing the Tornado](http://youtu.be/ioviAe76NVM)
 
 This is a Makerslide and Misumi based frame, using Spectra fishing line drive
 ala Kossel, and has square T Frame based on an Ostoc design.
