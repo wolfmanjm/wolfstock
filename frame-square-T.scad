@@ -95,7 +95,7 @@ if(useLBrackets) {
 	translate([triangleLength/2+20,0,slideht]) rotate([180,0,90]) hblsd5();
 }
 
-useAngleBrackets= true;
+useAngleBrackets= false;
 if(useAngleBrackets) {
 	// back
 	#translate([0,(centerBeamLength+20)-(centerBeamLength-(bsy+20)+20),0]) rotate([-90,180,0]) hblfsnf5();
@@ -177,3 +177,6 @@ color("red") translate([0,centerY,90+50]) rotate([0,0,60]) import("stl/effector.
 armr= 0.344*25.4/2;
 armsp= 57.7;
 color("black") translate([-armsp/2,bsy-14.5-6.5,carriageHt-20]) rotate([-30,0,-30]) translate([0,0,-430]) cylinder(r=armr, h= 430);
+
+// brace
+color("green") translate([0,bsy+80,0]) rotate([90,0,90]) hfs2040(1000);

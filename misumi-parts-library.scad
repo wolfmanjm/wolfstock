@@ -5,6 +5,13 @@ module hfs2040(l) {
 	}
 }
 
+module hfs2020(l) {
+	// hfs5_2020
+	color("silver") {
+		rotate([-90,0,0]) translate([0,0,l]) scale([1,1,l/50]) import("misumi/hfs5_2020_50.stl");
+	}
+}
+
 module hfs60() {
 	translate([0,0,100]) import("misumi/hfs60a5_20_100.stl");
 }
