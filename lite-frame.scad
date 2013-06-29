@@ -28,18 +28,18 @@ module carriage_assy() {
 
 // towers
 translate([0,-20,slideht/2]) rotate([0,0,90]) makerslide(slideht);
-translate([offsetX(beamLength)+23,offsetY(beamLength)+23,slideht/2]) rotate([0,0,-150]) makerslide(slideht);
+translate([150+23,259.8+23,slideht/2]) rotate([0,0,-150]) makerslide(slideht);
 translate([-offsetX(beamLength)-23,offsetY(beamLength)+23,slideht/2]) rotate([0,0,-30]) makerslide(slideht);
 
 // Bottom Beams
-translate([offsetX(-69),offsetY(-14),45/2]) rotate([0,0,30]) hfs2040(beamLength);
-translate([offsetX(69),offsetY(-14),45/2]) rotate([0,0,-30]) hfs2040(beamLength);
+translate([-34.5,-12.12,45/2]) rotate([0,0,30]) hfs2040(beamLength);
+translate([34.5,-12.12,45/2]) rotate([0,0,-30]) hfs2040(beamLength);
 translate([beamLength/2,offsetY(beamLength+55),45/2]) rotate([0,0,90]) hfs2040(beamLength);
 
 
 // bottom brackets
-translate([0,50-10,0]) rotate([0,0,-90]) frame_motor();
-translate([offsetX(beamLength-56),offsetY(beamLength-9),0]) rotate([0,0,30]) frame_motor();
+translate([0,0,0]) rotate([0,0,-90]) frame_motor();
+translate([150+7,270,0]) rotate([0,0,30]) frame_motor();
 translate([-offsetX(beamLength-56),offsetY(beamLength-9),0]) rotate([0,0,150]) frame_motor();
 
 bed();

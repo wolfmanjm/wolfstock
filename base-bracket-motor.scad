@@ -11,8 +11,8 @@ extrusion_depth= 20;
 base_cylinder_r= 72;
 arm_length= 60;
 
-//frame_motor();
-frame_idler();
+frame_motor();
+//frame_idler();
 
 //cutout_makerslide();
 //spool_cutout();
@@ -25,16 +25,20 @@ frame_idler();
 
 // show supporting structure
 if (true) {
-	%translate([50+10,0,50]) rotate([0, 0, 180]) makerslide(100);
-	%translate([52,34,height/2]) rotate([0,0,60]) hfs2040(100);
-	translate([17, 0, 50]) rotate([0, 0, 180]) tensioner_608();
+	%translate([20,0,50]) rotate([0, 0, 180]) makerslide(100);
+	%translate([12,34,height/2]) rotate([0,0,60]) hfs2040(100);
+	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2040(100);
+	//translate([17, 0, 50]) rotate([0, 0, 180]) tensioner_608();
 }
+
+function getBeamOffsetX()= 12;
+function getBeamOffsetY()= 34;
 
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
 module motor_attachment(thickness=8) {
-	translate([-thickness/2-0.5,0,height/2]) rotate([90, 0, 90]) linear_extrude(height=thickness) stepper_motor_mount(17,0,true,0.1);
+	translate([-thickness/2-0.5,0,height/2]) rotate([90, 0, 90]) linear_extrude(height=thickness) stepper_motor_mount(17,2,true,0.1);
 }
 
 module cutout_makerslide(clearance=0.1) {
@@ -59,7 +63,7 @@ module cutout_makerslide(clearance=0.1) {
 }
 
 module frame_motor() {
-	difference() {
+	translate([-40, 0, 0]) difference() {
 		cylinder(r=base_cylinder_r, h=height);
 		// makerslide cutout
 		translate([50,0,-0.5]) cutout_makerslide(clearance=0.3);
@@ -77,7 +81,7 @@ module frame_motor() {
 }
 
 module frame_idler() {
-	difference() {
+	translate([-40, 0, 0]) difference() {
 		cylinder(r=base_cylinder_r, h=height);
 		// makerslide cutout
 		translate([50,0,-0.5]) cutout_makerslide(clearance=0.3);
