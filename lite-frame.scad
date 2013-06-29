@@ -5,7 +5,6 @@ use <misumi-parts-library.scad>;
 use <tensioner_608.scad>
 use <base-bracket-motor.scad>
 
-
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 

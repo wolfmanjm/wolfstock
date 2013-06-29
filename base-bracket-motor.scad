@@ -1,5 +1,5 @@
 use <makerslide.scad>
-use <../MCAD/motors.scad>
+use <./MCAD/motors.scad>
 use <myLibs.scad>
 use <misumi-parts-library.scad>;
 use <tensioner_608.scad>
