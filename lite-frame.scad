@@ -17,8 +17,10 @@ centerBottomY= tan(30) * triangleLength/2;
 midlineY= cos(30) * triangleLength;
 centerTopY= midlineY - centerBottomY;
 centerRadius= (triangleLength/2)/cos(30);
+beamOffset= 10+25;
 
 echo("centerRadius= ", centerRadius, centerTopY);
+echo("centerBottomY= ", centerBottomY, midlineY-centerTopY);
 
 module carriage_assy() {
 	wheelelevation= -3 + -(0.25) *25.4;
@@ -34,6 +36,8 @@ module carriage_assy() {
 
 main();
 
+//bed();
+
 module tower() {
 	translate([-20,0,0]) makerslide(slideht);
 }
@@ -45,9 +49,9 @@ module main() {
 	translate([-triangleLength/2,-centerBottomY,slideht/2]) rotate([0,0,30]) tower();
 
 	// Bottom Beams
-	translate([beamLength/2,-centerBottomY-10-25,45/2]) rotate([0,0,90]) hfs2040(beamLength);
-//	translate([34.5,-12.12,45/2]) rotate([0,0,-30]) hfs2040(beamLength);
-//	translate([beamLength/2,offsetY(beamLength+55),45/2]) rotate([0,0,90]) hfs2040(beamLength);
+	translate([beamLength/2,-centerBottomY-beamOffset,45/2]) rotate([0,0,90]) hfs2040(beamLength);
+	translate([offsetY(centerBottomY+beamOffset),offsetX(centerBottomY+beamOffset),45/2]) rotate([0,0,30]) translate([0,-beamLength/2,0]) hfs2040(beamLength);
+	translate([-offsetY(centerBottomY+beamOffset),offsetX(centerBottomY+beamOffset),45/2]) rotate([0,0,-30]) translate([0,-beamLength/2,0]) hfs2040(beamLength);
 
 
 	// bottom brackets
@@ -55,8 +59,6 @@ module main() {
 	translate([triangleLength/2,-centerBottomY,0]) rotate([0,0,-30]) frame_motor();
 	translate([-triangleLength/2,-centerBottomY,0]) rotate([0,0,-150]) frame_motor();
 }
-
-//bed();
 
 module bed() {
 	translate([0, 0, 45]) circle(r=250/2);
