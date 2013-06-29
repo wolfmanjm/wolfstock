@@ -2,6 +2,7 @@ use <makerslide.scad>
 use <../MCAD/motors.scad>
 use <myLibs.scad>
 use <misumi-parts-library.scad>;
+use <tensioner_608.scad>
 
 thick= 4;
 height= 45;
@@ -10,7 +11,8 @@ extrusion_depth= 20;
 base_cylinder_r= 72;
 arm_length= 60;
 
-frame_motor();
+//frame_motor();
+frame_idler();
 
 //cutout_makerslide();
 //spool_cutout();
@@ -25,6 +27,7 @@ frame_motor();
 if (true) {
 	%translate([50+10,0,50]) rotate([0, 0, 180]) makerslide(100);
 	%translate([52,34,height/2]) rotate([0,0,60]) hfs2040(100);
+	translate([17, 0, 50]) rotate([0, 0, 180]) tensioner_608();
 }
 
 function offsetX(d)= sin(30) * d;
@@ -73,6 +76,22 @@ module frame_motor() {
 	}
 }
 
+module frame_idler() {
+	difference() {
+		cylinder(r=base_cylinder_r, h=height);
+		// makerslide cutout
+		translate([50,0,-0.5]) cutout_makerslide(clearance=0.3);
+		// cutout arms
+		translate([90,0,-1]) arms();
+		// spool/pulley cutout
+		translate([50-20-16-25/2,0,-1]) rotate([0, 0, -90]) spool_cutout();
+		// motor cutout
+		translate([-4,0,-1]) rotate([0, 0, -90]) motor_cutout();
+		// mounting holes
+		mounting_holes();
+	}
+}
+
 module mounting_holes() {
 	h1= height/2-10;
 	h2= height/2+10;
@@ -90,8 +109,6 @@ module mounting_holes() {
 	for(p= posb) {
 		#translate(p) rotate([0, 90, 0]) hole(5, 20);
 	}
-
-
 }
 
 module arms(cutout=1, thickness=6) {
