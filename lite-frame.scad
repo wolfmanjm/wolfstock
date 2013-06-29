@@ -9,10 +9,16 @@ use <base-bracket-motor.scad>
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
-triangleLength= 300;
+triangleLength= 312;
 armLength= 240;
 beamLength= 300;
 slideht= 700;
+centerBottomY= tan(30) * triangleLength/2;
+midlineY= cos(30) * triangleLength;
+centerTopY= midlineY - centerBottomY;
+centerRadius= (triangleLength/2)/cos(30);
+
+echo("centerRadius= ", centerRadius, centerTopY);
 
 module carriage_assy() {
 	wheelelevation= -3 + -(0.25) *25.4;
@@ -24,26 +30,34 @@ module carriage_assy() {
 	}
 }
 
+%rotate([0,0,0]) translate([0, -centerBottomY, 0]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
+
+main();
+
+module tower() {
+	translate([-20,0,0]) makerslide(slideht);
+}
+
+module main() {
+	// towers
+	translate([0,centerTopY,slideht/2]) rotate([0,0,-90]) tower();
+	translate([triangleLength/2,-centerBottomY,slideht/2]) rotate([0,0,-210]) tower();
+	translate([-triangleLength/2,-centerBottomY,slideht/2]) rotate([0,0,30]) tower();
+
+	// Bottom Beams
+	translate([beamLength/2,-centerBottomY-10-25,45/2]) rotate([0,0,90]) hfs2040(beamLength);
+//	translate([34.5,-12.12,45/2]) rotate([0,0,-30]) hfs2040(beamLength);
+//	translate([beamLength/2,offsetY(beamLength+55),45/2]) rotate([0,0,90]) hfs2040(beamLength);
 
 
-// towers
-translate([0,-20,slideht/2]) rotate([0,0,90]) makerslide(slideht);
-translate([150+23,259.8+23,slideht/2]) rotate([0,0,-150]) makerslide(slideht);
-translate([-offsetX(beamLength)-23,offsetY(beamLength)+23,slideht/2]) rotate([0,0,-30]) makerslide(slideht);
+	// bottom brackets
+	translate([0,centerTopY,0]) rotate([0,0,90]) frame_motor();
+	translate([triangleLength/2,-centerBottomY,0]) rotate([0,0,-30]) frame_motor();
+	translate([-triangleLength/2,-centerBottomY,0]) rotate([0,0,-150]) frame_motor();
+}
 
-// Bottom Beams
-translate([-34.5,-12.12,45/2]) rotate([0,0,30]) hfs2040(beamLength);
-translate([34.5,-12.12,45/2]) rotate([0,0,-30]) hfs2040(beamLength);
-translate([beamLength/2,offsetY(beamLength+55),45/2]) rotate([0,0,90]) hfs2040(beamLength);
-
-
-// bottom brackets
-translate([0,0,0]) rotate([0,0,-90]) frame_motor();
-translate([150+7,270,0]) rotate([0,0,30]) frame_motor();
-translate([-offsetX(beamLength-56),offsetY(beamLength-9),0]) rotate([0,0,150]) frame_motor();
-
-bed();
+//bed();
 
 module bed() {
-	translate([0, 180, 45]) circle(r=250/2);
+	translate([0, 0, 45]) circle(r=250/2);
 }
