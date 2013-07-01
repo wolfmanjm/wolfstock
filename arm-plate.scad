@@ -65,14 +65,14 @@ module printPlate() {
 	translate([0,30,0]) rotate([90,0,0]) backPlate();
 	
 	// left
-	translate([30,0,0]) rotate([-90,0,180]) mirror([0,1,0]) sidePlate();
+//	translate([30,0,0]) rotate([-90,0,180]) mirror([0,1,0]) sidePlate();
 	
 	//right
-	translate([-30,0,0]) rotate([90,0,0]) sidePlate();
+//	translate([-30,0,0]) rotate([90,0,0]) sidePlate();
 }
 
-//printPlate();
-modelBack();
+printPlate();
+//modelBack();
 
 //%translate([0,0,-3.175-thickness]) rotate([0,0,-90]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
 
