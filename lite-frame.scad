@@ -10,7 +10,7 @@ function offsetY(d)= cos(30) * d;
 
 triangleLength= 312;
 armLength= 250;
-beamLength= 300;
+beamLength= 268.5;
 slideht= 700;
 centerBottomY= tan(30) * triangleLength/2;
 midlineY= cos(30) * triangleLength;

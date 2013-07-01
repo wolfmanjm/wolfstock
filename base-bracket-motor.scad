@@ -16,7 +16,6 @@ gt2_length= 14;
 gt2_dia= 15;
 
 frame_motor();
-//frame_idler();
 
 //cutout_makerslide();
 //spool_cutout();
@@ -25,13 +24,13 @@ frame_motor();
 //arms(0, 4);
 
 // to align with arms and tweak the thickness
-//%translate([90,0,0]) arms(cutout=0, thickness=6);
+//%translate([50,0,0]) arms(cutout=0, thickness=6);
 
 // show supporting structure
 if (true) {
 	%translate([20,0,50]) rotate([0, 0, 180]) makerslide(100);
-	%translate([12,34,height/2]) rotate([0,0,60]) hfs2040(100);
-	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2040(100);
+	%translate([-1,41,height/2]) rotate([0,0,60]) hfs2040(100);
+	%translate([-1,-41,height/2]) rotate([0,0,120]) hfs2040(100);
 	//translate([17, 0, 50]) rotate([0, 0, 180]) tensioner_608();
 }
 
@@ -84,22 +83,6 @@ module frame_motor() {
 	}
 }
 
-module frame_idler() {
-	translate([-40, 0, 0]) difference() {
-		cylinder(r=base_cylinder_r, h=height);
-		// makerslide cutout
-		translate([50,0,-0.5]) cutout_makerslide(clearance=0.3);
-		// cutout arms
-		translate([90,0,-1]) arms();
-		// spool/pulley cutout
-		translate([50-20-16-25/2,0,-1]) rotate([0, 0, -90]) spool_cutout();
-		// motor cutout
-		translate([-4,0,-1]) rotate([0, 0, -90]) motor_cutout();
-		// mounting holes
-		mounting_holes();
-	}
-}
-
 module mounting_holes() {
 	h1= height/2-10;
 	h2= height/2+10;
@@ -122,8 +105,8 @@ module mounting_holes() {
 module arms(cutout=1, thickness=6) {
 	if (cutout) {
 		// generate cutout for arms
-		rotate([0,0,30]) translate([-200, -extrusion_depth*2,0]) cube([150, extrusion_depth*2, height+2]);
-		rotate([0,0,-30]) translate([-200, 0,0]) cube([150, extrusion_depth*2, height+2]);
+		#rotate([0,0,30]) translate([-215, -extrusion_depth*2,0]) cube([150, extrusion_depth*2, height+2]);
+		rotate([0,0,-30]) translate([-215, 0,0]) cube([150, extrusion_depth*2, height+2]);
 	}else{
 		// printable support arms
 		rotate([0,0,30]) translate([-200, 0,0]) cube([150, thickness, height]);
