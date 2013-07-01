@@ -25,7 +25,7 @@ frame_idler();
 //translate([50,0,0]) arms(cutout=0, thickness=6);
 
 // show supporting structure
-if (true) {
+if (false) {
 	%translate([20,0,50]) rotate([0, 0, 180]) makerslide(100);
 	%translate([12,34,height/2]) rotate([0,0,60]) hfs2020(100);
 	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2020(100);
@@ -73,7 +73,8 @@ module frame_idler() {
 		// mounting holes
 		mounting_holes();
 		// idler tension bolt
-		#translate([33, -10, -1]) slot(d=5, l= 8, ht= 40);
+		translate([33, -10, -1]) slot(d=5, l= 8, ht= 40);
+		translate([32.5, -10, 6]) slot(d=12, l= 12, ht= 30);
 	}
 }
 
