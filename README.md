@@ -14,6 +14,7 @@ A 3d Delta printer based on Kossel &amp; Ostoc
 * [Printing the Tornado](http://youtu.be/ioviAe76NVM)
 * [Printing the base of the fire vase](http://youtu.be/dyLlpcSapqo)
 * [View of whole bot while printing](http://youtu.be/TdOTSHrQ3tY)
+* [Printing a plate of Kossel-like brackets for the lite upgrade](http://youtu.be/5o5--uPWwJY)
 
 This is a Makerslide and Misumi based frame, using Spectra fishing line drive
 ala Kossel, and has square T Frame based on an Ostoc design.
