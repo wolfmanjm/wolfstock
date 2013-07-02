@@ -8,9 +8,9 @@ use <base-bracket-motor.scad>
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
-deltaRadius= 256;
-triangleLength= 300;
-armLength= 225;
+triangleLength= 450;
+deltaRadius= triangleLength-40;
+armLength= 360;
 //beamLength= 256.5; // with new setback brackets
 beamLength= triangleLength-13.4; //286.6; // with old longer brackets
 slideht= 700;
@@ -23,10 +23,12 @@ beamOffset= 10+25;
 DRcenterBottomY= tan(30) * deltaRadius/2;
 DRcenterRadius= (deltaRadius/2)/cos(30);
 
+echo(str("Beam length= ", beamLength));
 echo("centerRadius= ", centerRadius, centerTopY);
 echo("centerBottomY= ", centerBottomY, midlineY-centerTopY);
 echo("Diagonal Arm= ", triangleLength*0.8, deltaRadius*0.8);
 
+// frame triangle
 %rotate([0,0,0]) translate([0, -centerBottomY, 0]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
 // actual triangle from center of arm joins and deltaRadius
@@ -35,7 +37,7 @@ echo("Diagonal Arm= ", triangleLength*0.8, deltaRadius*0.8);
 main();
 bed();
 
-carriageHt= 300;
+carriageHt= 385;
 armr= 0.344*25.4/2;
 armsp= 57.7;
 al= armLength;
@@ -43,11 +45,11 @@ if(true) {
 	translate([0,centerTopY+20,carriageHt]) rotate([90,0,0]) carriage_assy();
 	translate([0,centerTopY-16,carriageHt-8]) rotate([0,0,0]) import("stl/arm-plate-back.stl");
 	// arms
-	color("black") translate([-armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-30,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
-	color("black") translate([armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-30,0,0]) translate([0,0,-armLength]) cylinder(r=armr, h= al);
+	color("black") translate([-armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-38,0,-30]) translate([0,0,-al]) cylinder(r=armr, h= al);
+	color("black") translate([armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-38,0,-30]) translate([0,0,-al]) cylinder(r=armr, h= al);
 	
 	// effector
-	color("red") translate([0,0,85]) rotate([0,0,60]) import("stl/effector.stl");
+	color("red") translate([-110,0,85]) rotate([0,0,60]) import("stl/effector.stl");
 	
 	color("green") {
  	 	intersection() {
