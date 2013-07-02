@@ -105,7 +105,7 @@ module mounting_holes() {
 module arms(cutout=1, thickness=6) {
 	if (cutout) {
 		// generate cutout for arms
-		#rotate([0,0,30]) translate([-215, -extrusion_depth*2,0]) cube([150, extrusion_depth*2, height+2]);
+		rotate([0,0,30]) translate([-215, -extrusion_depth*2,0]) cube([150, extrusion_depth*2, height+2]);
 		rotate([0,0,-30]) translate([-215, 0,0]) cube([150, extrusion_depth*2, height+2]);
 	}else{
 		// printable support arms
