@@ -86,16 +86,16 @@ module frame_motor() {
 module mounting_holes() {
 	h1= height/2-10;
 	h2= height/2+10;
-	posl= [ [23,45, h1], [23,45, h2], [-12,70, h1], [-12,70, h2]];
-	posr= [ [offsetX(28),offsetY(-35), h1], [offsetX(28),offsetY(-35), h2],
+	posl= [ [38,55, h1], [38,55, h2], [-12,70, h1], [-12,70, h2]];
+	posr= [ [offsetX(40),offsetY(-28), h1], [offsetX(40),offsetY(-28), h2],
 			[offsetX(-40),offsetY(-55), h1], [offsetX(-40),offsetY(-55), h2]];
 	posb= [ [55,-10, h1], [55,-10, h2], [55,10, h1], [55,10, h2]];
 
 	for(p= posl) {
-		#translate(p) rotate([90, 0, -30]) hole(5, 20);
+		#translate(p) rotate([90, 0, -30]) hole(5, 90);
 	}
 	for(p= posr) {
-		#translate(p) rotate([90, 0, 30]) hole(5, 20);
+		#translate(p) rotate([90, 0, 30]) hole(5, 40);
 	}
 	for(p= posb) {
 		#translate(p) rotate([0, 90, 0]) hole(5, 20);
