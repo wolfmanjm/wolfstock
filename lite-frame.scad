@@ -4,6 +4,7 @@ use <carriage_plate_standard_c14005_rev_2.scad>;
 use <misumi-parts-library.scad>;
 use <tensioner_608.scad>
 use <base-bracket-motor.scad>
+use <myLibs.scad>
 
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
@@ -51,7 +52,7 @@ if(true) {
 	// effector
 	color("red") translate([-110,0,85]) rotate([0,0,60]) import("stl/effector.stl");
 	
-	color("green") {
+	*color("green") {
  	 	intersection() {
 			translate([0,DRcenterRadius,50]) cylinder(r=armLength+50,h=2, $fn=80);
 			translate([deltaRadius/2,-DRcenterBottomY,50]) cylinder(r=armLength+50,h=2, $fn=80);
@@ -89,6 +90,19 @@ module bed() {
 		color("black") translate([0, 0, 45]) cylinder(r=302/2, h=2, $fn=6);
 		for(a=[30, 90, 150, 210, 270, 330]) {
 			#translate([0,0,43]) rotate([0,0,a]) translate([0, 302/2-11,0]) cylinder(r=5/2, h=6);
+		}
+	}
+	bed_bracket();
+}
+
+module bed_bracket() {
+	l= 70;
+	w= 40;
+	translate([-70, -centerBottomY-beamOffset+l/2-10, 45]) {
+		difference() {
+			cube(size=[w, l, 4], center=true);	
+			#translate([-10,-l/2+10,-4]) hole(5, 8);
+			#translate([10,-l/2+10,-4]) hole(5, 8);
 		}
 	}
 }
