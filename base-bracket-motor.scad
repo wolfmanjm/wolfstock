@@ -92,7 +92,7 @@ module mounting_holes() {
 	posb= [ [55,-10, h1], [55,-10, h2], [55,10, h1], [55,10, h2]];
 
 	for(p= posl) {
-		#translate(p) rotate([90, 0, -30]) hole(5, 90);
+		#translate(p) rotate([90, 0, -30]) hole(5, 40);
 	}
 	for(p= posr) {
 		#translate(p) rotate([90, 0, 30]) hole(5, 40);
