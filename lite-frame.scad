@@ -8,9 +8,9 @@ use <base-bracket-motor.scad>
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
-triangleLength= 450;
+triangleLength= 463.4;
 deltaRadius= triangleLength-40;
-armLength= 360;
+armLength= 370;
 //beamLength= 256.5; // with new setback brackets
 beamLength= triangleLength-13.4; //286.6; // with old longer brackets
 slideht= 700;
