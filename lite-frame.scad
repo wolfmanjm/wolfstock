@@ -45,6 +45,7 @@ carriageHt= bedht+530; // 385;
 armr= 0.344*25.4/2;
 armsp= 57.7;
 al= armLength;
+tr= (centerTopY-30)/2;
 if(true) {
 	translate([0,centerTopY+20,carriageHt]) rotate([90,0,0]) carriage_assy();
 	color("blue") translate([0,centerTopY-23,carriageHt-16.5]) rotate([90,0,90]) cylinder(r=3/2-0.2, h=200, center=true, $fn= 32);
@@ -68,6 +69,14 @@ if(true) {
   		}
   	}
 	bed();
+
+	// calibration circle and points
+	//color("red") translate([0, 0, 50]) cylinder(r=tr, h=2);
+	for(p= [[offsetY(-tr),offsetX(-tr),55], [offsetY(tr),offsetX(-tr),55], [0,tr,55], [0,0,55]]) {
+		translate(p) cylinder(r=5, h=2);
+		echo(str("Tp= ", p[0],",",p[1]));
+	}
+
 }
 
 module tower() {
