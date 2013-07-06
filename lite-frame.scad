@@ -11,7 +11,7 @@ function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
 
 triangleLength= 463.4;
-deltaRadius= triangleLength-40;
+printTriangle= triangleLength-40;
 armLength= 370;
 //beamLength= 256.5; // with new setback brackets
 beamLength= triangleLength-13.4; //286.6; // with old longer brackets
@@ -22,19 +22,20 @@ centerTopY= midlineY - centerBottomY;
 centerRadius= (triangleLength/2)/cos(30);
 beamOffset= 10+25;
 
-DRcenterBottomY= tan(30) * deltaRadius/2;
-DRcenterRadius= (deltaRadius/2)/cos(30);
+delta_smooth_rod_offset= 0;
+DRcenterBottomY= tan(30) * printTriangle/2;
+DRcenterRadius= (printTriangle/2)/cos(30);
 
 echo(str("Beam length= ", beamLength));
 echo("centerRadius= ", centerRadius, centerTopY);
 echo("centerBottomY= ", centerBottomY, midlineY-centerTopY);
-echo("Diagonal Arm= ", triangleLength*0.8, deltaRadius*0.8);
-
+echo("Diagonal Arm= ", triangleLength*0.8, printTriangle*0.8);
+echo(str("DELTA_SMOOTH_ROD_OFFSET = ", centerTopY));	
 // frame triangle
 %rotate([0,0,0]) translate([0, -centerBottomY, 0]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
-// actual triangle from center of arm joins and deltaRadius
-//%rotate([0,0,0]) translate([0, -tan(30) * deltaRadius/2, 300]) polygon(points=[[-deltaRadius/2,0],[0,offsetY(deltaRadius)],[deltaRadius/2,0]], paths=[[0,1,2]]);
+// actual triangle from center of arm joins and printTriangle
+//%rotate([0,0,0]) translate([0, -tan(30) * printTriangle/2, 300]) polygon(points=[[-printTriangle/2,0],[0,offsetY(printTriangle)],[printTriangle/2,0]], paths=[[0,1,2]]);
 
 main();
 //bed();
@@ -46,19 +47,24 @@ armsp= 57.7;
 al= armLength;
 if(true) {
 	translate([0,centerTopY+20,carriageHt]) rotate([90,0,0]) carriage_assy();
+	color("blue") translate([0,centerTopY-23,carriageHt-16.5]) rotate([90,0,90]) cylinder(r=3/2-0.2, h=200, center=true, $fn= 32);
+	echo(str("DELTA_CARRIAGE_OFFSET = ", 23));
+
 	translate([0,centerTopY-16,carriageHt-8]) rotate([0,0,0]) import("stl/arm-plate-back.stl");
 	// arms
 	color("black") translate([-armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
 	color("black") translate([armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
 	
 	// effector
-	color("red") translate([offsetY(0),offsetX(0),bedht+200]) rotate([0,0,60]) import("stl/effector.stl");
-	
+	color("red") translate([0,0,bedht+200]) rotate([0,0,60]) import("stl/effector.stl");
+	color("blue") translate([0,45.85,bedht+200]) rotate([90,0,90]) cylinder(r=3/2-0.2, h=100, center=true, $fn= 32);
+	echo(str("DELTA_EFFECTOR_OFFSET = ", 45.85));
+
 	*color("green") {
  	 	intersection() {
 			translate([0,DRcenterRadius,50]) cylinder(r=armLength+50,h=2, $fn=80);
-			translate([deltaRadius/2,-DRcenterBottomY,50]) cylinder(r=armLength+50,h=2, $fn=80);
-			translate([-deltaRadius/2,-DRcenterBottomY,50]) cylinder(r=armLength+50,h=2, $fn=80);
+			translate([printTriangle/2,-DRcenterBottomY,50]) cylinder(r=armLength+50,h=2, $fn=80);
+			translate([-printTriangle/2,-DRcenterBottomY,50]) cylinder(r=armLength+50,h=2, $fn=80);
   		}
   	}
 	bed();
@@ -134,7 +140,7 @@ module bed_bracket() {
 module carriage_assy() {
 	wheelelevation= -3 + -(0.25) *25.4;
 	translate([0.6,0,20 + -wheelelevation]) {
-   		color([0.2,0.2,0.2]) translate([]) rotate([0,0,-90]) centeredCarriagePlate();
+   		color([0.2,0.2,0.2]) rotate([0,0,-90]) centeredCarriagePlate();
       	translate([32.163,-34.925,wheelelevation]) rotate([180,0,0]) vwheel();
       	translate([32.163, 34.925,wheelelevation]) rotate([180,0,0]) vwheel();
       	translate([-32.663 - 0.94,0,wheelelevation]) rotate([180,0,0]) vwheel();
