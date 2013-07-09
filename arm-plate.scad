@@ -22,6 +22,16 @@ module armPlate(w=w, h=h) {
 	cube([w,h,basethickness], center=true);
 }
 
+module qcylinder(r, h) {
+	difference() {
+		cylinder(r=r, h=h);
+		translate([-r,-r,-1]) {
+			cube([r,r*2,h+2]);
+			cube([r*2,r,h+2]);
+		}
+	}
+}
+
 module backPlate() {
 	union() {
 		difference() {
@@ -36,8 +46,9 @@ module backPlate() {
 		}
 
 		// support
-		translate([w/2-8,-5,-0.1]) rotate([90, 0, 90]) triangle(9, 13, 8);
-		translate([-w/2,-5,-0.1]) rotate([90, 0, 90]) triangle(9, 13, 8);
+		translate([w/2-8,-9,-4]) rotate([90,0,90]) qcylinder(r=17, h=8);
+		// translate([w/2-8,-5,-0.1]) rotate([90, 0, 90]) triangle(9, 13, 8);
+		// translate([-w/2,-5,-0.1]) rotate([90, 0, 90]) triangle(9, 13, 8);
 
 		// #translate([w/2-8,-15.6,-0.1]) cube([8, 4, 10]);
 		// #translate([-w/2,-15.6,-0.1]) cube([8, 4, 10]);
