@@ -28,8 +28,8 @@ original designs by me.
 
 All are under the same licensing as Kossel.
 
-BoM
----
+## BoM
+
 
 ### Printed parts
 Stls are in the
@@ -44,7 +44,7 @@ Stls are in the
   [like](https://www.inventables.com/technologies/standard-wheel-carriage-plate),
   so check your plates and adjust the scad as necessary.
 
-### Extrusion
+### Extrusion and Vitamins
 * 3x 1m lengths of 2040 Makerslide, OR 3x 1m lengths of Misumi 2040 and
   3x 1m lengths of open rail, OR 3x 1m lengths of 2040 V-Slot
 * 3x 463.4mm lengths of 2040 for bottom rails (use the kossel
@@ -56,18 +56,16 @@ Stls are in the
 * Appropriate carriage for the rails and wheels, add 2x eccentric
   spacers per carriage and 3x regular spacers. (some wheels come with
   the regular ones)
-* 6x 370mm square carbon fiber tubing if using the endcaps to join
+* 6x 370mm 0.318" (8mm) square carbon fiber tube if using the endcaps to join
   with traxas joints, or round tubing as per Kossel
 * plenty of t nuts and M5 bolts... lengths TBD
 
 
-Sourcing
---------
+## Sourcing
 
 TBD
 
-Assembly
---------
+## Assembly
 
 TBD
 
