@@ -1,7 +1,8 @@
 use <carriage_plate_standard_c14005_rev_2.scad>
 use <arm-mount.scad>
+use <myLibs.scad>
 
-w= 52;
+w= 52-0.3;
 h= 25;
 thickness=4;
 basethickness=5;
@@ -17,20 +18,40 @@ module triangle(o_len, a_len, depth)
 }
 
 module armPlate(w=w, h=h) {
+	// base plate
+	cube([w,h,basethickness], center=true);
+}
+
+module qcylinder(r, h) {
 	difference() {
-		// base plate
-		cube([w,h,basethickness], center=true);
-		
-		// attachment holes
-		#translate([-10,0,-thickness/2-4]) cylinder(r=5/2+0.2, h= thickness+5);
-		#translate([10,0,-thickness/2-4]) cylinder(r=5/2+0.2, h= thickness+5);
+		cylinder(r=r, h=h);
+		translate([-r,-r,-1]) {
+			cube([r,r*2,h+2]);
+			cube([r*2,r,h+2]);
+		}
 	}
 }
 
 module backPlate() {
-	union() translate([0,0,-basethickness/2]){
-		armPlate();
-		translate([0,-h/2+8/2,-1]) rotate([90,0,0]) arm_mount();
+	union() {
+		difference() {
+			translate([0,0,-basethickness/2]) union() {
+				translate([0, -4, 0]) armPlate();
+				translate([0,-h/2+8/2,-1]) rotate([90,0,0]) arm_mount();
+			}
+			
+			// attachment holes
+			#translate([-10,-4,-thickness/2-4]) hole(5, thickness+5);
+			#translate([10,-4,-thickness/2-4]) hole(5, thickness+5);
+		}
+
+		// support
+		translate([w/2-8,-9,-4]) rotate([90,0,90]) qcylinder(r=17, h=8);
+		// translate([w/2-8,-5,-0.1]) rotate([90, 0, 90]) triangle(9, 13, 8);
+		// translate([-w/2,-5,-0.1]) rotate([90, 0, 90]) triangle(9, 13, 8);
+
+		// #translate([w/2-8,-15.6,-0.1]) cube([8, 4, 10]);
+		// #translate([-w/2,-15.6,-0.1]) cube([8, 4, 10]);
 	}
 }
 
@@ -65,14 +86,15 @@ module printPlate() {
 	translate([0,30,0]) rotate([90,0,0]) backPlate();
 	
 	// left
-	translate([30,0,0]) rotate([-90,0,180]) mirror([0,1,0]) sidePlate();
+//	translate([30,0,0]) rotate([-90,0,180]) mirror([0,1,0]) sidePlate();
 	
 	//right
-	translate([-30,0,0]) rotate([90,0,0]) sidePlate();
+//	translate([-30,0,0]) rotate([90,0,0]) sidePlate();
 }
 
+backPlate();
 //printPlate();
-modelBack();
+//modelBack();
 
 //%translate([0,0,-3.175-thickness]) rotate([0,0,-90]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
 
