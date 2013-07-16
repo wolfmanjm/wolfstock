@@ -7,7 +7,7 @@
 ## Uses distinct namespace. Jekyll settings should go at the root level.
 githubiverse:
     ## Metadata
-    title: "Wolfstock a Kossel derivative"
+    title: "Wolfstock a Mini Kossel derivative"
     author: Jim Morris
     license: GPL3
     tags: [3d printing, kossel, rostock]
@@ -17,10 +17,10 @@ githubiverse:
         base: https://github.com/
         user: wolfmanjm
         repository: wolfstock
-        branch: master
+        branch: old-printed-brackets
 
     ## The names of directories where any images, source and stl files associated with the project can be found.
-    img_dir: img
+    img_dir: pics
     stl_dir: stl
     src_dir: src
 
