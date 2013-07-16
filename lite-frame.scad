@@ -70,6 +70,8 @@ if(true) {
   	}
 	bed();
 
+	//translate([-10/2, -centerBottomY-25, 80]) cube(size=[10, 28, 10]);
+
 	// calibration circle and points
 	//color("red") translate([0, 0, 50]) cylinder(r=tr, h=2);
 	for(p= [[offsetY(-tr),offsetX(-tr),55], [offsetY(tr),offsetX(-tr),55], [0,tr,55], [0,0,55]]) {

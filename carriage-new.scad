@@ -5,6 +5,7 @@
 include <configuration.scad>;
 
 use <carriage_plate_standard_c14005_rev_2.scad>
+use <myLibs.scad>
 
 //separation = 40;
 ratio= 1.39;
@@ -61,8 +62,7 @@ module carriage() {
     // Screws for linear slider.
     for (x = [-10, 10]) {
       for (y = [-10, 0, 10]) {
-        translate([x, y, thickness]) #
-          cylinder(r=5/2, h=30, center=true, $fn=12);
+        #translate([x, y, thickness-30/2]) hole(5, 30);
       }
     }
     // Screws for ball joints.
@@ -81,5 +81,5 @@ module carriage() {
 
 carriage();
 
-//%translate([0,-10,-3.175]) rotate([0,0,0]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
-%translate([0,0,-3.175]) rotate([0,0,90]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
+%translate([0,-10,-3.175]) rotate([0,0,0]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
+//%translate([0,0,-3.175]) rotate([0,0,90]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
