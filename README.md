@@ -63,7 +63,37 @@ Stls are in the
 
 ## Sourcing
 
+### Common components
+
+* Bottom side rails 2040 500mm Misumi ~$5 3 $15
+* Top side rails 2020 500mm Misumi ~$2.50 3 $7.50
+* Bolts for back of towers M4 Length? 24
+* Bolts for side braces M4 Length?  24
+* T Nuts M4 100 Misumi $20
+
+### Makerslide based
+* Makerslide rail 1000mm https://www.inventables.com/technologies/makerslide 25142-03 $21.74 3 $65.52
+* Dual Bearing V-Wheel Kit https://www.inventables.com/technologies/dual-bearing-v-wheel-kit 25203-02 $4.85 12 $58.20
+* Eccentric Spacer https://www.inventables.com/technologies/eccentric-spacer 25195-01 $2.00 6 $12.00
+* Nylon Natural Color Spacer pack of 10 https://www.inventables.com/technologies/nylon-natural-color-spacer 25206-01 $2.00 1 $2.00
+* Standard Wheel Carriage Plate https://www.inventables.com/technologies/standard-wheel-carriage-plate 25200-01 $8.00 3 $24.00
+
+Sub Total: $161.72
+
+### V Slot based
+* V-Slot 20 x 40mm 1000mm http://openbuildspartstore.com/v-slot-20-x-40mm/ $13.00 3 $39.00
+* OpenBuilds Dual V Wheel Kit - Delrin http://openbuildspartstore.com/openbuilds-dual-v-wheel-kit-delrin/ $3.85 12 $46.20
+* V-Slot Universal Plate http://openbuildspartstore.com/v-slot-universal-plate/ $12.00 3 $36.00
+* Eccentric Spacers http://openbuildspartstore.com/eccentric-spacers/ $2.00 6 $12.00
+
+Sub Total: $133.20
+
+### Open Rail Based
 TBD
+
+### Notes
+You can use a printed carriage for each tower, saving about $30
+The printed carriages do not need the eccentric spacers saving $12
 
 ## Assembly
 
