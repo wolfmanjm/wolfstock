@@ -2,7 +2,8 @@ use <makerslide.scad>
 use <./MCAD/motors.scad>
 use <myLibs.scad>
 use <misumi-parts-library.scad>;
-use <tensioner_608.scad>
+//use <tensioner_608.scad>
+use <tensioner_g2_608.scad>
 
 thick= 4;
 height= 45;
@@ -12,8 +13,12 @@ base_cylinder_r= 72;
 arm_length= 60;
 
 // gt2 pulley
-gt2_length= 14;
-gt2_dia= 15;
+gt2_length= 17.51;
+gt2_inner_length= 7.42;
+gt2_outer_dia= 17.85;
+gt2_inner_dia= 12.25;
+gt2_min_shaft_len= 9.14;
+gt2_max_shaft_len= 13.64;
 
 frame_motor();
 //frame_idler();
@@ -29,10 +34,14 @@ frame_motor();
 
 // show supporting structure
 if (true) {
-	%translate([20,0,50]) rotate([0, 0, 180]) makerslide(100);
+	translate([20,0,220/2]) rotate([0, 0, 180]) makerslide(220);
 	%translate([12,34,height/2]) rotate([0,0,60]) hfs2040(100);
 	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2040(100);
-	//translate([17, 0, 50]) rotate([0, 0, 180]) tensioner_608();
+	translate([0, 0, 200]) rotate([0, 0, -90]) { 
+		tensioner_608();
+		//rotate([0, 0, 90]) tensioner_support();
+	}
+	translate([-30, 0, 22]) rotate([0, 90, 0])  color("red") gt2_pulley();
 }
 
 function getBeamOffsetX()= 12;
@@ -40,6 +49,12 @@ function getBeamOffsetY()= 34;
 
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
+
+module gt2_pulley() {
+	cylinder(r=gt2_inner_dia/2, h=gt2_length, center=true);
+	translate([0, 0, gt2_length/2]) cylinder(r=gt2_outer_dia, h=1, center=true);
+	translate([0, 0, gt2_length/2-gt2_inner_length]) cylinder(r=gt2_outer_dia, h=1, center=true);
+}
 
 module motor_attachment(thickness=8) {
 	translate([-thickness/2-0.5,0,height/2]) rotate([90, 0, 90]) linear_extrude(height=thickness) stepper_motor_mount(17,2,true,0.1);

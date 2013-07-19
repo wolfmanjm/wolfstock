@@ -2,13 +2,15 @@ use <2020-insert.scad>
 use <crownedpulley.scad>
 use <myLibs.scad>
 
-offset_x = -20; 
+offset_x = -19; 
 offset_y = 10;
 rotate_z = -90;
 clearance= 0.5;
 offset_z= 4;
+block_width= abs(offset_x)+1;
+block_length= 14;
 
-belt_thick= 2;
+belt_thick= 2; // 1.45
 belt_width= 6;
 belt_clearance= 1;
 thick= 3;
@@ -30,25 +32,22 @@ module fillet(pos= [0,0,0], radius=3, height=100, fn=16, angle= 0) {
         }
 }
 
-module support() {
+module tensioner_support() {
 	% translate([0, 0, offset_z]) rotate([0, 90, 0]) cylinder(r=11, h=7, center=true);
 	#translate([-9/2, 0, offset_z]) rotate([0, 90, 0]) crowned_pulley();
 }
 
 module block() {
-		shim= 1;
-		rotate([0, 0, rotate_z]) translate([offset_x, offset_y, 0]) {
+		rotate([0, 0, rotate_z]) translate([offset_x-(pulley_width()+thick)/2, offset_y, 0]) {
 			difference() {
 				union() {
-					translate([7, 0, 0]) cube([14, 14, tensioner_height()], center=true);
-					translate([7, -7, 0]) cylinder(r=7, h=tensioner_height(), center=true, $fn=32);
-					// shim
-					translate([14, -2, 0]) cube([shim,18,tensioner_height()], center=true);
+					translate([block_width/2, 0, 0]) cube([block_width, block_length, tensioner_height()], center=true);
+					translate([block_width/2, -block_length/2, 0]) cylinder(r=block_width/2, h=tensioner_height(), center=true, $fn=32);
 					// t slot
 					translate([0,0,-tensioner_height()/2]) rotate([0,0,-90]) slider2020(h=tensioner_height(), w=14, t=2);
 
 				}
-				fillet(pos=[0,7,0], radius=2, angle=90);
+				fillet(pos=[0,block_length/2,0], radius=2, angle=90);
 				// 1/4" hole for tensioner
 				#translate([7,0,10]) cylinder(r=(4)/2+0.3, h=50, center=true, $fn=12);
 		}
@@ -83,12 +82,12 @@ module tensioner_body() {
 }
 
 module tensioner_608() {
-	difference() {
+	translate([0,offset_x-(pulley_width()+thick)/2,0]) difference() {
 		union() {
 			block();
 			translate([0, 0, 0]) rotate([0, 0, 90])  tensioner_body();
 		}
-		#translate([0,14/2,offset_z]) rotate([90, 0, 0]) hole(8, 14);
+		#translate([0,block_width/2,offset_z]) rotate([90, 0, 0]) hole(8, 14);
 	}
 
 }

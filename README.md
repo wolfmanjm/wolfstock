@@ -18,7 +18,7 @@ ala Kossel, and has a large frame made from 2040 and 2020 Misumi using mini-koss
 
 The default version has 1000mm high Makerslide towers, an 463.4mm triangle sides, and 
 arm length of 370mm, which makes for a roughly 250mm circular build area using Traxxas joints
-and 400mm build height.
+and 400mm build height. Use the Kossel Calculator and the lite-frame.scad to play with the exact lengths required.
 
 The scad source files are parameterized so the dimensions can be
 tweaked.

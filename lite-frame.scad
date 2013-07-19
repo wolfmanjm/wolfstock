@@ -1,8 +1,8 @@
-use <makerslide.scad>;
-use <vwheel_single_bearing_b17001_rev_2.scad>;
-use <carriage_plate_standard_c14005_rev_2.scad>;
-use <misumi-parts-library.scad>;
-use <tensioner_608.scad>
+use <makerslide.scad>
+use <vwheel_single_bearing_b17001_rev_2.scad>
+use <carriage_plate_standard_c14005_rev_2.scad>
+use <misumi-parts-library.scad>
+use <tensioner_g2_608.scad>
 use <base-bracket-motor.scad>
 use <base-bracket-idler.scad>
 use <myLibs.scad>
@@ -47,6 +47,11 @@ armsp= 57.7;
 al= armLength;
 tr= (centerTopY-30)/2;
 if(true) {
+	// color("black") translate([0, centerTopY-25, slideht-30]) rotate([0, 0, 0]) { 
+	// 	tensioner_608();
+	// 	rotate([0, 0, 90]) tensioner_support();
+	// }
+
 	translate([0,centerTopY+20,carriageHt]) rotate([90,0,0]) carriage_assy();
 	color("blue") translate([0,centerTopY-23,carriageHt-16.5]) rotate([90,0,90]) cylinder(r=3/2-0.2, h=200, center=true, $fn= 32);
 	echo(str("DELTA_CARRIAGE_OFFSET = ", 23));
