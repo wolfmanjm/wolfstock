@@ -65,11 +65,11 @@ Stls are in the
 
 ### Common components
 
-* Bottom side rails 2040 500mm Misumi ~$5 3 $15
-* Top side rails 2020 500mm Misumi ~$2.50 3 $7.50
+* Bottom side rails www.misumi-ec.com HFS5-2040-500 $5.40 3 $16.20
+* Top side rails www.misumi-ec.com HFS5-2020-500 $2.85 3 $8.55
 * Bolts for back of towers M4 Length? 24
 * Bolts for side braces M4 Length?  24
-* T Nuts M4 100 Misumi $20
+* T Nuts M4 100 pack www.misumi-ec.com HNKK5-5 $20
 
 ### Makerslide based
 * Makerslide rail 1000mm https://www.inventables.com/technologies/makerslide 25142-03 $21.74 3 $65.52
