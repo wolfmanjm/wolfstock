@@ -4,15 +4,24 @@
 
 $fn = 72;
 
+// 608
 crownRadius = 13.6;
 pulleyHeight = 9;
 bearingSize = 22;
-bearingClearing = 0.6; // 22.6mm inside diameter
+bearingClearing = 0.1; // 22.6mm inside diameter
 innerHole = 9.15;
+
+// 605
+// pulleyHeight = 5;
+// bearingSize = 14;
+// bearingClearing = 0.1;
+// innerHole = bearingSize/2-1.5;
+// crownRadius = bearingSize/2+1;
 
 function pulley_width() = pulleyHeight;
 function pulley_diameter() = crownRadius*2;
 
+echo(str("pulley_diameter=", crownRadius*2));
 module crowned_pulley() {
 	difference() {
 	    intersection() {
@@ -26,3 +35,5 @@ module crowned_pulley() {
 	        cylinder(r = innerHole, h = pulleyHeight + 2);
 	}
 }
+
+crowned_pulley();
