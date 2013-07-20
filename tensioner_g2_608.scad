@@ -6,7 +6,7 @@ gt2_inner_dia= 12.25;
 offset_x = -19; 
 offset_y = 10-pulley_diameter()/2+gt2_inner_dia/2;
 rotate_z = -90;
-clearance= 0.5;
+clearance= 1;
 offset_z= 4;
 block_width= abs(offset_x)+1;
 block_length= 14;
@@ -14,7 +14,7 @@ block_length= 14;
 belt_thick= 2; // 1.45
 belt_width= 6;
 belt_clearance= 2;
-thick= 3;
+thick= 3*2;
 
 function tensioner_height()= 22;
 
@@ -69,8 +69,8 @@ module tensioner_body() {
 	difference() {
 		union() {
 			cube([pulley_width()+thick, pulley_diameter()+belt_thick+thick, tensioner_height()], center=true);
-			translate([0, -(pulley_diameter()+belt_thick+thick)/2, 0]) end();
-			translate([0, (pulley_diameter()+belt_thick+thick)/2, 0]) rotate([0, 0, 180])  end();
+			translate([0, -(pulley_diameter()+belt_thick+thick)/2+0.1, 0]) end();
+			translate([0, (pulley_diameter()+belt_thick+thick)/2-0.1, 0]) rotate([0, 0, 180])  end();
 		}
 
 		translate([0, 0, offset_z]) {
@@ -92,6 +92,7 @@ module tensioner_608() {
 			translate([0, 0, 0]) rotate([0, 0, 90])  tensioner_body();
 		}
 		#translate([0,block_width/2-2,offset_z]) rotate([90, 0, 0]) hole(8, 16);
+		//translate([0, -12, 0])  cube([50, 20, 50], center=true); // cutaway to see clearance
 	}
 
 	%translate([-offset_y,offset_x-(pulley_width()+thick)/2,0]) tensioner_support();
