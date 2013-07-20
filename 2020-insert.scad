@@ -1,8 +1,10 @@
-slotneckw= 6-0.2;
+use <misumi-parts-library.scad>
+
+slotneckw= 6-0.5;
 slotthick= 2+0.3;
-slotdepth= 3.2+0.6-0.1;
-slotwidth= 9.95+1.0;
-shoulder=0.8;
+slotdepth= 3.2+0.6-0.2;
+slotwidth= 9.95+1.6;
+shoulder=0.7;
 edge= (slotwidth-slotneckw)/2;
 diagl=3.6;
 
@@ -28,3 +30,4 @@ module slider2020(w= 20, h= 20, t=2) {
 }
 
 slider2020(w=10, h=10, t=2);
+% translate([10, -10.1, 0])  rotate([90, 0, 90])   hfs2040(50);

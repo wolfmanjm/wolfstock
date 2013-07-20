@@ -6,7 +6,7 @@ gt2_inner_dia= 12.25;
 offset_x = -19; 
 offset_y = 10-pulley_diameter()/2+gt2_inner_dia/2;
 rotate_z = -90;
-clearance= 1;
+clearance= 2;
 offset_z= 4;
 block_width= abs(offset_x)+1;
 block_length= 14;
@@ -91,7 +91,8 @@ module tensioner_608() {
 			block();
 			translate([0, 0, 0]) rotate([0, 0, 90])  tensioner_body();
 		}
-		#translate([0,block_width/2-2,offset_z]) rotate([90, 0, 0]) hole(8, 16);
+		// bearing shaft
+		#translate([0,block_width/2,offset_z]) rotate([90, 0, 0]) hole(8, 18);
 		//translate([0, -12, 0])  cube([50, 20, 50], center=true); // cutaway to see clearance
 	}
 
