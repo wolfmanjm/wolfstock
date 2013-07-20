@@ -83,10 +83,10 @@ Sub Total: $161.72
 ### V Slot based
 * V-Slot 20 x 40mm 1000mm http://openbuildspartstore.com/v-slot-20-x-40mm/ $13.00 3 $39.00
 * OpenBuilds Dual V Wheel Kit - Delrin http://openbuildspartstore.com/openbuilds-dual-v-wheel-kit-delrin/ $3.85 12 $46.20
-* V-Slot Universal Plate http://openbuildspartstore.com/v-slot-universal-plate/ $12.00 3 $36.00
+* OpenRail Gantry Plate 40mm http://openbuildspartstore.com/openrail-gantry-plate-universal-mount $8.00 3 $24.00
 * Eccentric Spacers http://openbuildspartstore.com/eccentric-spacers/ $2.00 6 $12.00
 
-Sub Total: $133.20
+Sub Total: $121.20
 
 ### Open Rail Based
 TBD

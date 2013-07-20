@@ -2,8 +2,9 @@ use <2020-insert.scad>
 use <crownedpulley.scad>
 use <myLibs.scad>
 
+gt2_inner_dia= 12.25;
 offset_x = -19; 
-offset_y = 10;
+offset_y = 10-pulley_diameter()/2+gt2_inner_dia/2;
 rotate_z = -90;
 clearance= 0.5;
 offset_z= 4;
@@ -12,7 +13,7 @@ block_length= 14;
 
 belt_thick= 2; // 1.45
 belt_width= 6;
-belt_clearance= 1;
+belt_clearance= 2;
 thick= 3;
 
 function tensioner_height()= 22;
@@ -33,8 +34,11 @@ module fillet(pos= [0,0,0], radius=3, height=100, fn=16, angle= 0) {
 }
 
 module tensioner_support() {
-	% translate([0, 0, offset_z]) rotate([0, 90, 0]) cylinder(r=11, h=7, center=true);
-	#translate([-9/2, 0, offset_z]) rotate([0, 90, 0]) crowned_pulley();
+	difference() {
+		translate([0, 3.5, offset_z]) rotate([90, 0, 0]) cylinder(r=11, h=7, center=false);
+		#translate([0, 5, offset_z]) rotate([90, 0, 0]) cylinder(r=8/2, h=10, center=false);
+	}
+	translate([0, pulley_width()/2, offset_z]) rotate([90, 0, 0]) crowned_pulley();
 }
 
 module block() {
@@ -76,20 +80,24 @@ module tensioner_body() {
 			//#translate([-14/2,0,0]) rotate([0, 90, 0]) hole(8, 14);
 		}
 		// belts
-		translate([0, pulley_diameter()/2-1, 0]) cube(size=[pulley_width()+clearance, belt_thick+belt_clearance+1, 40], center=true);
-		translate([0, -pulley_diameter()/2+1, 0]) cube(size=[pulley_width()+clearance, belt_thick+belt_clearance+1, 40], center=true);
+		translate([0, pulley_diameter()/2+belt_thick-1, 0]) cube(size=[pulley_width()+clearance, belt_thick+belt_clearance+1.5, 40], center=true);
+		translate([0, -pulley_diameter()/2-belt_thick+1, 0]) cube(size=[pulley_width()+clearance, belt_thick+belt_clearance+1.5, 40], center=true);
 	}
 }
 
 module tensioner_608() {
-	translate([0,offset_x-(pulley_width()+thick)/2,0]) difference() {
+	translate([-offset_y,offset_x-(pulley_width()+thick)/2,0]) difference() {
 		union() {
 			block();
 			translate([0, 0, 0]) rotate([0, 0, 90])  tensioner_body();
 		}
-		#translate([0,block_width/2,offset_z]) rotate([90, 0, 0]) hole(8, 14);
+		#translate([0,block_width/2-2,offset_z]) rotate([90, 0, 0]) hole(8, 16);
 	}
 
+	%translate([-offset_y,offset_x-(pulley_width()+thick)/2,0]) tensioner_support();
+
+	// belts
+	%translate([-offset_y-pulley_diameter()/2-belt_thick, offset_x-(pulley_width()+thick)/2-belt_width/2, -25]) color("gray") cube([belt_thick, belt_width, 50]);
 }
 
 

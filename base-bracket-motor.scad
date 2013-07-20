@@ -37,7 +37,7 @@ if (true) {
 	translate([20,0,220/2]) rotate([0, 0, 180]) makerslide(220);
 	%translate([12,34,height/2]) rotate([0,0,60]) hfs2040(100);
 	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2040(100);
-	translate([0, 0, 200]) rotate([0, 0, -90]) { 
+	translate([0, -10, 200]) rotate([0, 0, -90]) { 
 		tensioner_608();
 		//rotate([0, 0, 90]) tensioner_support();
 	}
