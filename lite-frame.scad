@@ -41,25 +41,24 @@ main();
 //bed();
 
 bedht= 60;
-carriageHt= bedht+530; // 385;
+carriageHt= bedht+490; // 385;
 armr= 0.344*25.4/2;
 armsp= 57.7;
 al= armLength;
 tr= (centerTopY-30)/2;
 if(true) {
-	// color("black") translate([0, centerTopY-25, slideht-30]) rotate([0, 0, 0]) { 
-	// 	tensioner_608();
-	// 	rotate([0, 0, 90]) tensioner_support();
-	// }
+	color("black") translate([10, centerTopY, slideht-40]) rotate([0, 0, 0]) { 
+		tensioner_608();
+	}
 
 	translate([0,centerTopY+20,carriageHt]) rotate([90,0,0]) carriage_assy();
-	color("blue") translate([0,centerTopY-23,carriageHt-16.5]) rotate([90,0,90]) cylinder(r=3/2-0.2, h=200, center=true, $fn= 32);
+	color("blue") translate([0,centerTopY-21,carriageHt+16]) rotate([90,0,90]) cylinder(r=3/2-0.2, h=200, center=true, $fn= 32);
 	echo(str("DELTA_CARRIAGE_OFFSET = ", 23));
 
-	translate([0,centerTopY-16,carriageHt-8]) rotate([0,0,0]) import("stl/arm-plate-back.stl");
+	translate([0,centerTopY-12.5,carriageHt]) rotate([90,0,0]) import("stl/carriage-new.stl");
 	// arms
-	color("black") translate([-armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
-	color("black") translate([armsp/2,centerTopY-14.5-6.5,carriageHt-20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
+	color("black") translate([-armsp/2,centerTopY-14.5-6.5,carriageHt+20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
+	color("black") translate([armsp/2,centerTopY-14.5-6.5,carriageHt+20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
 	
 	// effector
 	color("red") translate([0,0,bedht+200]) rotate([0,0,60]) import("stl/effector.stl");
