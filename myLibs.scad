@@ -20,6 +20,13 @@ module slot(d= 4, l= 8, ht= 1, clearance=0.1) {
 		translate([0,0,ht/2]) cube([l-d1, d1, ht], center=true);
 		translate([-(l-d1)/2, 0, ht/2]) cylinder(h=ht, r=rd, $fn=fn, center=true); 
 		translate([(l-d1)/2, 0, ht/2]) cylinder(h=ht, r=rd, $fn=fn, center=true); 
+	}	
+}
+
+module nslot(d=4, l= 8, ht=1, clearance=0.1) {
+	x= l-(d+clearance);
+	hull() {
+		translate([x/2, 0, 0])  hole(d, ht, clearance);
+		translate([-x/2,0,0]) hole(d,ht, clearance);
 	}
-	
 }

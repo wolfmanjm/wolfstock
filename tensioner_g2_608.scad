@@ -2,6 +2,13 @@ use <2020-insert.scad>
 use <crownedpulley.scad>
 use <myLibs.scad>
 
+
+/* TODO
+ * put cones on each siode of bearing
+ * allow tilting of bearing shaft to center belt
+ *
+ */
+
 gt2_inner_dia= 12.25;
 offset_x = -19; 
 offset_y = 10-pulley_diameter()/2+gt2_inner_dia/2;
@@ -92,7 +99,7 @@ module tensioner_608() {
 			translate([0, 0, 0]) rotate([0, 0, 90])  tensioner_body();
 		}
 		// bearing shaft
-		#translate([0,block_width/2,offset_z]) rotate([90, 0, 0]) hole(8, 18);
+		translate([0,block_width/2,offset_z+0.5]) rotate([90, 90, 0]) slot(8, 9, 18);
 		//translate([0, -12, 0])  cube([50, 20, 50], center=true); // cutaway to see clearance
 	}
 
