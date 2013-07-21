@@ -4,9 +4,11 @@ use <myLibs.scad>
 
 
 /* TODO
- * put cones on each siode of bearing
+ * put cones on each side of bearing
  * allow tilting of bearing shaft to center belt
- *
+ *   a. wedge
+ *   b. nut underneath
+ *   c. cone shft push in for tild one way pull out for tilt otherway
  */
 
 gt2_inner_dia= 12.25;
