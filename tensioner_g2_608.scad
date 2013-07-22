@@ -8,7 +8,7 @@ use <myLibs.scad>
  * allow tilting of bearing shaft to center belt
  *   a. wedge
  *   b. nut underneath
- *   c. cone shft push in for tild one way pull out for tilt otherway
+ *   c. cone shft push in for tild one way pull out for. tilt otherway
  */
 
 gt2_inner_dia= 12.25;
@@ -24,6 +24,7 @@ belt_thick= 2; // 1.45
 belt_width= 6;
 belt_clearance= 2;
 thick= 3*2;
+bearingID= 8;
 
 function tensioner_height()= 22;
 
@@ -99,6 +100,8 @@ module tensioner_608() {
 		union() {
 			block();
 			translate([0, 0, 0]) rotate([0, 0, 90])  tensioner_body();
+			translate([0,(pulley_width()+clearance)/2+0.05,offset_z+0.5]) horn(true);
+			translate([0,-(pulley_width()+clearance)/2-0.05,offset_z+0.5]) horn(false);
 		}
 		// bearing shaft
 		translate([0,block_width/2,offset_z+0.5]) rotate([90, 90, 0]) slot(8, 9, 18);
@@ -111,4 +114,7 @@ module tensioner_608() {
 	%translate([-offset_y-pulley_diameter()/2-belt_thick, offset_x-(pulley_width()+thick)/2-belt_width/2, -25]) color("gray") cube([belt_thick, belt_width, 50]);
 }
 
+module horn(front=true) {
+	rotate([front?90:-90, 0, 0])  cylinder(r1= bearingID/2+2.5, r2=bearingID/2+1, h=1);
+}
 
