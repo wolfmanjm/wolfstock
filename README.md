@@ -3,11 +3,11 @@ wolfstock
 
 __NOTE__ This is a Work In Progress
 
-__NOTE__ The old T frame version of this has been deprecated and can be found in the branch [tframe](https://github.com/wolfmanjm/wolfstock/tree/tframe)
+__NOTE__ The old T frame/Ostoc version of this has been deprecated and can be found in the branch [tframe](https://github.com/wolfmanjm/wolfstock/tree/tframe)
 
 
 A 3d Delta printer based on the Mini-Kossel but using 2040 Makerslide for the
-towers and the carriages.
+towers and the carriages, and accomodating larger bed and height.
 
 * [Githubiverse page](http://wolfmanjm.github.com/wolfstock)
 * [First Print](http://www.youtube.com/watch?v=khotvR7Lyf4)
@@ -16,20 +16,24 @@ towers and the carriages.
 This is a Makerslide and Misumi based frame, using Spectra fishing line drive
 ala Kossel, and has a large frame made from 2040 and 2020 Misumi using mini-kossel style printed brackets.
 
-The default version has 1000mm high Makerslide towers, an 463.4mm triangle sides, and 
-arm length of 370mm, which makes for a roughly 250mm circular build area using Traxxas joints
-and 400mm build height. Use the Kossel Calculator and the lite-frame.scad to play with the exact lengths required.
+The default version has 1000mm high Makerslide towers, an 463.4mm
+triangle sides, and arm length of 370mm, which makes for a roughly
+250mm circular build area using Traxxas joints and 400mm build height.
+Use the Kossel Calculator and the lite-frame.scad to play with the
+exact lengths required.
 
 The scad source files are parameterized so the dimensions can be
 tweaked.
 
-Many of the scad files are derived from Kossel files, some are
+Some of the scad files are derived from Kossel files, most are
 original designs by me.
 
-All are under the same licensing as Kossel.
+This work is licensed under the Creative Commons
+Attribution-ShareAlike 3.0 Unported License. To view a copy of this
+license, visit http://creativecommons.org/licenses/by-sa/3.0/.  
+
 
 ## BoM
-
 
 ### Printed parts
 Stls are in the
@@ -71,6 +75,21 @@ Stls are in the
 * Bolts for side braces M4 Length?  24
 * T Nuts M4 100 pack www.misumi-ec.com HNKK5-5 $20
 
+### Drive Mechanism
+
+Choose one of the following...
+
+#### Fishing Line
+* Spectra 60lb braided fishing line
+* Drive spools http://3d.grabercars.com/?product=filament-drive-reel-grooved-delrin-18mm-o-d-for-kossel $7.95 3 $23.85
+* 608 bearings for idler 3
+
+#### GT2 Belt
+* GT2 Belt http://www.robotdigg.com/product/10/Open-Ended-6mm-Width-GT2-Belt $2.00/meter approx 6.3-7 meters $14.00
+* GT2 toothed pulley 20 Teeth 5mm Bore http://www.robotdigg.com/product/9/GT2-Pulley-20-Teeth-5mm-Bore $2.00 3 $6.00
+* 608 bearings for idler 3
+* Grib screws for pulley http://www.robotdigg.com/product/17/M3*4-Grub-Screw-PACK-SET-for-Timing-Pulleys $0.35
+
 ### Makerslide based
 * Makerslide rail 1000mm https://www.inventables.com/technologies/makerslide 25142-03 $21.74 3 $65.52
 * Dual Bearing V-Wheel Kit https://www.inventables.com/technologies/dual-bearing-v-wheel-kit 25203-02 $4.85 12 $58.20
@@ -107,3 +126,4 @@ TBD
 
 
 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Wolfstock</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://wolfmanjm.github.com/wolfstock" property="cc:attributionName" rel="cc:attributionURL">Jim Morris</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/wolfmanjm/wolfstock" rel="dct:source">https://github.com/wolfmanjm/wolfstock</a>.
