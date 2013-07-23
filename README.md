@@ -85,34 +85,34 @@ Choose one of the following...
 * 608 bearings for idler 3
 
 #### GT2 Belt
-* GT2 Belt http://www.robotdigg.com/product/10/Open-Ended-6mm-Width-GT2-Belt $2.00/meter approx 6.3-7 meters $14.00
-* GT2 toothed pulley 20 Teeth 5mm Bore http://www.robotdigg.com/product/9/GT2-Pulley-20-Teeth-5mm-Bore $2.00 3 $6.00
+* [GT2 Belt](http://www.robotdigg.com/product/10/Open-Ended-6mm-Width-GT2-Belt) $2.00/meter approx 6.3-7 meters $14.00
+* [GT2 toothed pulley 20 Teeth 5mm Bore](http://www.robotdigg.com/product/9/GT2-Pulley-20-Teeth-5mm-Bore) $2.00 3 $6.00
 * 608 bearings for idler 3
-* Grib screws for pulley http://www.robotdigg.com/product/17/M3*4-Grub-Screw-PACK-SET-for-Timing-Pulleys $0.35
+* [Grub screws for pulley](http://www.robotdigg.com/product/17/M3*4-Grub-Screw-PACK-SET-for-Timing-Pulleys) $0.35
 
 ### Makerslide based
-* Makerslide rail 1000mm https://www.inventables.com/technologies/makerslide 25142-03 $21.74 3 $65.52
-* Dual Bearing V-Wheel Kit https://www.inventables.com/technologies/dual-bearing-v-wheel-kit 25203-02 $4.85 12 $58.20
-* Eccentric Spacer https://www.inventables.com/technologies/eccentric-spacer 25195-01 $2.00 6 $12.00
-* Nylon Natural Color Spacer pack of 10 https://www.inventables.com/technologies/nylon-natural-color-spacer 25206-01 $2.00 1 $2.00
-* Standard Wheel Carriage Plate https://www.inventables.com/technologies/standard-wheel-carriage-plate 25200-01 $8.00 3 $24.00
+* [Makerslide rail 1000mm](https://www.inventables.com/technologies/makerslide) 25142-03 $21.74 3 $65.52
+* [Dual Bearing V-Wheel Kit](https://www.inventables.com/technologies/dual-bearing-v-wheel-kit) 25203-02 $4.85 12 $58.20
+* [Eccentric Spacer](https://www.inventables.com/technologies/eccentric-spacer) 25195-01 $2.00 6 $12.00
+* [Nylon Spacer pack of 10](https://www.inventables.com/technologies/nylon-natural-color-spacer) 25206-01 $2.00 1 $2.00
+* [Standard Wheel Carriage Plate](https://www.inventables.com/technologies/standard-wheel-carriage-plate) 25200-01 $8.00 3 $24.00
 
 Sub Total: $161.72
 
 ### V Slot based
-* V-Slot 20 x 40mm 1000mm http://openbuildspartstore.com/v-slot-20-x-40mm/ $13.00 3 $39.00
-* OpenBuilds Dual V Wheel Kit - Delrin http://openbuildspartstore.com/openbuilds-dual-v-wheel-kit-delrin/ $3.85 12 $46.20
-* V-Slot Universal Plate http://openbuildspartstore.com//v-slot-universal-plate $12.00 3 $36.00
-* Eccentric Spacers http://openbuildspartstore.com/eccentric-spacers/ $2.00 6 $12.00
+* [V-Slot 20 x 40mm 1000mm](http://openbuildspartstore.com/v-slot-20-x-40mm/) $13.00 3 $39.00
+* [OpenBuilds Dual V Wheel Kit - Delrin](http://openbuildspartstore.com/openbuilds-dual-v-wheel-kit-delrin/) $3.85 12 $46.20
+* [V-Slot Universal Plate](http://openbuildspartstore.com/v-slot-universal-plate) $12.00 3 $36.00
+* [Eccentric Spacers](http://openbuildspartstore.com/eccentric-spacers/) $2.00 6 $12.00
 
 Sub Total: $133.20
 
 ### Open Rail Based
-* 2040 1000mm  www.misumi-ec.com HFS5-2040-1000 $10.80 3 $32.40
-* Open Rail 1000mm http://openbuildspartstore.com/openrail-black-anodized/ $6 6 $36
-* OpenBuilds Dual V Wheel Kit - Delrin http://openbuildspartstore.com/openbuilds-dual-v-wheel-kit-delrin/ $3.85 12 $46.20
-* OpenRail Gantry Plate 40mm http://openbuildspartstore.com/openrail-gantry-plate-universal-mount $8.00 3 $24.00
-* Eccentric Spacers http://openbuildspartstore.com/eccentric-spacers/ $2.00 6 $12.00
+* 2040 1000mm  [Misumi][] HFS5-2040-1000 $10.80 3 $32.40
+* [Open Rail 1000mm](http://openbuildspartstore.com/openrail-black-anodized/) $6 6 $36
+* [OpenBuilds Dual V Wheel Kit - Delrin](http://openbuildspartstore.com/openbuilds-dual-v-wheel-kit-delrin/) $3.85 12 $46.20
+* [OpenRail Gantry Plate 40mm](http://openbuildspartstore.com/openrail-gantry-plate-universal-mount) $8.00 3 $24.00
+* [Eccentric Spacers](http://openbuildspartstore.com/eccentric-spacers/) $2.00 6 $12.00
 
 Sub Total: $150.60
 
