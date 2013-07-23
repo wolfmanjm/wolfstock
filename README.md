@@ -30,7 +30,7 @@ original designs by me.
 
 This work is licensed under the Creative Commons
 Attribution-ShareAlike 3.0 Unported License. To view a copy of this
-license, visit http://creativecommons.org/licenses/by-sa/3.0/.  
+license, [visit](http://creativecommons.org/licenses/by-sa/3.0/)
 
 
 ## BoM
@@ -43,9 +43,9 @@ Stls are in the
 * Print three base-bracket-idler.stl
 * Print three tensioner_608.stl
 * Print one effector.stl
-* Print three carriage-new.stl (These bolt onto a carriage that has
+* Print three carriage-new.stl These bolt onto a carriage that has
   20mm hole paterns
-  [like](https://www.inventables.com/technologies/standard-wheel-carriage-plate),
+  [like this](https://www.inventables.com/technologies/standard-wheel-carriage-plate),
   so check your plates and adjust the scad as necessary.
 
 ### Extrusion and Vitamins
@@ -69,7 +69,7 @@ Stls are in the
 
 ### Common components
 
-* Bottom side rails www.misumi-ec.com HFS5-2040-500 $5.40 3 $16.20
+* Bottom side rails [](www.misumi-ec.com HFS5-2040-500) $5.40 3 $16.20
 * Top side rails www.misumi-ec.com HFS5-2020-500 $2.85 3 $8.55
 * Bolts for back of towers M4 Length? 24
 * Bolts for side braces M4 Length?  24
