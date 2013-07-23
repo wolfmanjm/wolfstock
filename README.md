@@ -69,11 +69,11 @@ Stls are in the
 
 ### Common components
 
-* Bottom side rails [](www.misumi-ec.com HFS5-2040-500) $5.40 3 $16.20
-* Top side rails www.misumi-ec.com HFS5-2020-500 $2.85 3 $8.55
+* Bottom side rails [Misumi][] HFS5-2040-500 $5.40 3 $16.20
+* Top side rails  [Misumi][] HFS5-2020-500 $2.85 3 $8.55
 * Bolts for back of towers M4 Length? 24
 * Bolts for side braces M4 Length?  24
-* T Nuts M4 100 pack www.misumi-ec.com HNKK5-5 $20
+* T Nuts M4 100 pack  [Misumi][] HNKK5-5 $20
 
 ### Drive Mechanism
 
@@ -81,7 +81,7 @@ Choose one of the following...
 
 #### Fishing Line
 * Spectra 60lb braided fishing line
-* Drive spools http://3d.grabercars.com/?product=filament-drive-reel-grooved-delrin-18mm-o-d-for-kossel $7.95 3 $23.85
+* [Drive spools](http://3d.grabercars.com/?product=filament-drive-reel-grooved-delrin-18mm-o-d-for-kossel) $7.95 3 $23.85
 * 608 bearings for idler 3
 
 #### GT2 Belt
@@ -127,3 +127,5 @@ TBD
 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Wolfstock</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://wolfmanjm.github.com/wolfstock" property="cc:attributionName" rel="cc:attributionURL">Jim Morris</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/wolfmanjm/wolfstock" rel="dct:source">https://github.com/wolfmanjm/wolfstock</a>.
+
+[Misumi]: http://www.misumi-ec.com "Misumi"
