@@ -9,8 +9,8 @@ githubiverse:
     ## Metadata
     title: "Wolfstock a Mini Kossel derivative"
     author: Jim Morris
-    license: GPL3
-    tags: [3d printing, kossel, rostock]
+    license: CC BY SA
+    tags: [3d printing, delta printer, kossel, rostock]
 
     ## Github project parameters.
     github:
