@@ -2,7 +2,11 @@ use <makerslide.scad>
 use <./MCAD/motors.scad>
 use <myLibs.scad>
 use <misumi-parts-library.scad>;
-use <tensioner_608.scad>
+//use <tensioner_608.scad>
+use <tensioner_g2_608.scad>
+
+// set to 1 if using makerslide and set to 0 if using 2040 or vslot
+use_makerslide= 1;
 
 thick= 4;
 height= 45;
@@ -12,8 +16,12 @@ base_cylinder_r= 72;
 arm_length= 60;
 
 // gt2 pulley
-gt2_length= 14;
-gt2_dia= 15;
+gt2_length= 17.51;
+gt2_inner_length= 7.42;
+gt2_outer_dia= 17.85;
+gt2_inner_dia= 12.25;
+gt2_min_shaft_len= 9.14;
+gt2_max_shaft_len= 13.64;
 
 frame_motor();
 //frame_idler();
@@ -29,10 +37,18 @@ frame_motor();
 
 // show supporting structure
 if (true) {
-	%translate([20,0,50]) rotate([0, 0, 180]) makerslide(100);
+	if(use_makerslide == 1) {
+		color("gray") translate([20,0,220/2]) rotate([0, 0, 180]) makerslide(220);
+	}else{
+		translate([10,0,0]) rotate([90, 0, 0]) hfs2040(220);
+	}
 	%translate([12,34,height/2]) rotate([0,0,60]) hfs2040(100);
 	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2040(100);
-	//translate([17, 0, 50]) rotate([0, 0, 180]) tensioner_608();
+	translate([0, -10, 200]) rotate([0, 0, -90]) { 
+		tensioner_608();
+		//rotate([0, 0, 90]) tensioner_support();
+	}
+	translate([-30, 0, 22]) rotate([0, 90, 0])  color("red") gt2_pulley();
 }
 
 function getBeamOffsetX()= 12;
@@ -40,6 +56,12 @@ function getBeamOffsetY()= 34;
 
 function offsetX(d)= sin(30) * d;
 function offsetY(d)= cos(30) * d;
+
+module gt2_pulley() {
+	cylinder(r=gt2_inner_dia/2, h=gt2_length, center=true);
+	translate([0, 0, gt2_length/2]) cylinder(r=gt2_outer_dia, h=1, center=true);
+	translate([0, 0, gt2_length/2-gt2_inner_length]) cylinder(r=gt2_outer_dia, h=1, center=true);
+}
 
 module motor_attachment(thickness=8) {
 	translate([-thickness/2-0.5,0,height/2]) rotate([90, 0, 90]) linear_extrude(height=thickness) stepper_motor_mount(17,2,true,0.1);
@@ -61,9 +83,12 @@ module cutout_makerslide(clearance=0.1) {
 			translate([extrusion_depth/2, -extrusion_width/4, h/2]) cube(size=[2, slot-c, h+0.2], center=true);
 			translate([extrusion_depth/2, extrusion_width/4, h/2]) cube(size=[2, slot-c, h+0.2], center=true);
 		}
-		// vgrooves
-		translate([-extrusion_depth/2, extrusion_width/2+vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
-	}	translate([-extrusion_depth/2, -extrusion_width/2-vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
+		if(use_makerslide == 1) {
+			// slots for v rails
+			translate([-extrusion_depth/2, extrusion_width/2+vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
+			translate([-extrusion_depth/2, -extrusion_width/2-vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
+		}
+	}
 }
 
 module frame_motor() {

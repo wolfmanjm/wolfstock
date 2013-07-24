@@ -3,6 +3,9 @@ use <myLibs.scad>
 use <misumi-parts-library.scad>;
 use <tensioner_608.scad>
 
+// set to 1 if using makerslide and set to 0 if using 2040 or vslot
+use_makerslide= 0;
+
 thick= 4;
 height= 20;
 extrusion_width= 40;
@@ -25,8 +28,12 @@ frame_idler();
 //translate([50,0,0]) arms(cutout=0, thickness=6);
 
 // show supporting structure
-if (false) {
-	%translate([20,0,50]) rotate([0, 0, 180]) makerslide(100);
+if (true) {
+	if(use_makerslide == 1) {
+		color("gray") translate([20,0,50]) rotate([0, 0, 180]) makerslide(100);
+	}else{
+		translate([10,0,0]) rotate([90, 0, 0]) hfs2040(100);
+	}
 	%translate([12,34,height/2]) rotate([0,0,60]) hfs2020(100);
 	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2020(100);
 	%translate([-22, 0, 40]) rotate([0, 0, -90]) tensioner_608();
@@ -54,9 +61,12 @@ module cutout_makerslide(clearance=0.1) {
 			translate([extrusion_depth/2, -extrusion_width/4, h/2]) cube(size=[2, slot-c, h+0.2], center=true);
 			translate([extrusion_depth/2, extrusion_width/4, h/2]) cube(size=[2, slot-c, h+0.2], center=true);
 		}
-		// vgrooves
-		translate([-extrusion_depth/2, extrusion_width/2+vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
-	}	translate([-extrusion_depth/2, -extrusion_width/2-vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
+		if(use_makerslide == 1) {
+			// slots for v rails
+			translate([-extrusion_depth/2, extrusion_width/2+vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
+			translate([-extrusion_depth/2, -extrusion_width/2-vgroove_tip/2,h/2]) cube(size=[vgroove_oh*2+c, vgroove_tip+c, h+0.2], center=true);
+		}
+	}
 }
 
 module frame_idler() {
