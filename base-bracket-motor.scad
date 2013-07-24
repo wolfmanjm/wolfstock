@@ -5,7 +5,7 @@ use <misumi-parts-library.scad>;
 //use <tensioner_608.scad>
 use <tensioner_g2_608.scad>
 
-// set to 1 if using makerslide and set to 0 if using 2040
+// set to 1 if using makerslide and set to 0 if using 2040 or vslot
 use_makerslide= 1;
 
 thick= 4;

@@ -104,7 +104,8 @@ module tensioner_608() {
 			translate([0,-(pulley_width()+clearance)/2-0.05,offset_z+0.5]) horn(false);
 		}
 		// bearing shaft
-		translate([0,block_width/2,offset_z+0.5]) rotate([90, 90, 0]) slot(8, 9, 18);
+		//translate([0,block_width/2,offset_z+0.5]) rotate([90, 90, 0]) slot(8, 9, 18);
+		translate([0,block_width/2,offset_z]) rotate([90, 90, 0]) hole(8, 18);
 		//translate([0, -12, 0])  cube([50, 20, 50], center=true); // cutaway to see clearance
 	}
 
@@ -115,6 +116,6 @@ module tensioner_608() {
 }
 
 module horn(front=true) {
-	rotate([front?90:-90, 0, 0])  cylinder(r1= bearingID/2+2.5, r2=bearingID/2+1, h=1);
+	rotate([front?90:-90, 0, 0])  cylinder(r1= bearingID/2+2.5, r2=bearingID/2+1, h=2);
 }
 
