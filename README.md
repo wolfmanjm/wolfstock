@@ -13,8 +13,11 @@ towers and the carriages, and accomodating larger bed and height.
 * [First Print](http://www.youtube.com/watch?v=khotvR7Lyf4)
 * [Printing Tornado vase](http://www.youtube.com/watch?v=ChUlHnQ6QRw)
 
-This is a Makerslide and Misumi based frame, using Spectra fishing line drive
-ala Kossel, and has a large frame made from 2040 and 2020 Misumi using mini-kossel style printed brackets.
+This is a Makerslide and Misumi based frame, using Spectra fishing
+line drive ala original Kossel, or gt2 belts with crown pulleys.
+
+It has a large frame made from 2040 and 2020 Misumi extrusion using
+mini-kossel style printed brackets.
 
 The default version has 1000mm high Makerslide towers, an 463.4mm
 triangle sides, and arm length of 370mm, which makes for a roughly
@@ -41,7 +44,7 @@ Stls are in the
 
 * Print three base-bracket-motor.stl
 * Print three base-bracket-idler.stl
-* Print three tensioner_608.stl
+* Print three tensioner_608.stl or tensioner_g2_608.stl (also the crowned pulley if using the latter)
 * Print one effector.stl
 * Print three carriage-new.stl These bolt onto a carriage that has
   20mm hole paterns
