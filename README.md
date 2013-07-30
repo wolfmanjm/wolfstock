@@ -75,8 +75,8 @@ Stls are in the
 
 * Bottom side rails [Misumi][] HFS5-2040-500 $5.40 3 $16.20
 * Top side rails  [Misumi][] HFS5-2020-500 $2.85 3 $8.55
-* Bolts for back of towers M5 Length 16mm or 14 min
-* Bolts for side braces M5 Length 12mm or 10
+* Bolts for back of towers M5 Length 16mm
+* Bolts for side braces M5 Length 12mm or 10mm
 * T Nuts M4 100 pack  [Misumi][] HNKK5-5 $20
 
 ### Drive Mechanism
