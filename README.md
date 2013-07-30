@@ -66,7 +66,7 @@ Stls are in the
 * 6x 370mm 0.318" (8mm) square carbon fiber tube if using the endcaps to join
   with traxas joints, or round tubing as per Kossel
 * plenty of t nuts and M5 bolts... 
-  lengths M5x16 for the back 18 total, M5x10 for the sides 32 total
+  lengths M5x16 for the back 18 total, M5x12 for the sides 32 total
 
 
 ## Sourcing
@@ -76,7 +76,7 @@ Stls are in the
 * Bottom side rails [Misumi][] HFS5-2040-500 $5.40 3 $16.20
 * Top side rails  [Misumi][] HFS5-2020-500 $2.85 3 $8.55
 * Bolts for back of towers M5 Length 16mm
-* Bolts for side braces M5 Length 12mm or 10mm
+* Bolts for side braces M5 Length 12mm
 * T Nuts M4 100 pack  [Misumi][] HNKK5-5 $20
 
 ### Drive Mechanism
