@@ -65,7 +65,8 @@ Stls are in the
   the regular ones)
 * 6x 370mm 0.318" (8mm) square carbon fiber tube if using the endcaps to join
   with traxas joints, or round tubing as per Kossel
-* plenty of t nuts and M5 bolts... lengths TBD
+* plenty of t nuts and M5 bolts... 
+  lengths M5x16 for the back 18 total, M5x10 for the sides 32 total
 
 
 ## Sourcing
