@@ -126,9 +126,16 @@ The printed carriages do not need the eccentric spacers saving $12
 
 ## Assembly
 
-TBD
+1. Bolt the side rails in first to form the triangle. REmember to put
+enough tslot nuts in the tslots first, also put some in the top and
+side for mounting things later.
+2. Mount the motors next.
+3. Insert the Makerslide into the holes, use a rubber mallet to get the corners on the makerslide, but be gentle.
+4. bolt the makerslide from the back.
+5. do the same for the top, but remember to put the idlers in the track first
 
 
+# License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Wolfstock</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://wolfmanjm.github.com/wolfstock" property="cc:attributionName" rel="cc:attributionURL">Jim Morris</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/wolfmanjm/wolfstock" rel="dct:source">https://github.com/wolfmanjm/wolfstock</a>.
 
