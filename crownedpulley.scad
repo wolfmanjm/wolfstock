@@ -26,7 +26,7 @@ module crowned_pulley() {
 	difference() {
 	    intersection() {
 	        cylinder(r = crownRadius, h = pulleyHeight);
-	        translate([0, 0, pulleyHeight / 2]) sphere(r=crownRadius);
+	        translate([0, 0, pulleyHeight / 2]) scale([1, 1, .7]) sphere(r=crownRadius);
 	    }
 	    translate([0, 0, 1])
 	        cylinder(r = (bearingSize + bearingClearing) / 2, h = pulleyHeight);
@@ -36,3 +36,8 @@ module crowned_pulley() {
 }
 
 crowned_pulley();
+
+// intersection() {
+// 	#cylinder(r = crownRadius, h = pulleyHeight);
+// 	#translate([0, 0, pulleyHeight / 2]) scale([1, 1, .7])  sphere(r=crownRadius);
+// }

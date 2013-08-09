@@ -12,7 +12,7 @@ towers and the carriages, and accomodating larger bed and height.
 * [Githubiverse page](http://wolfmanjm.github.com/wolfstock)
 * [First Print](http://www.youtube.com/watch?v=khotvR7Lyf4)
 * [Printing Tornado vase](http://www.youtube.com/watch?v=ChUlHnQ6QRw)
-* [Printing a bracket](http://youtu.be/8T7D6oTOcEI)
+* [Printing](http://youtu.be/xLpwUxT9Mxs)
 
 This is a Makerslide and Misumi based frame, using Spectra fishing
 line drive ala original Kossel, or gt2 belts with crown pulleys.
