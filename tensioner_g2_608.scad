@@ -46,7 +46,7 @@ module fillet(pos= [0,0,0], radius=3, height=100, fn=16, angle= 0) {
 module tensioner_support() {
 	difference() {
 		translate([0, 3.5, offset_z]) rotate([90, 0, 0]) cylinder(r=11, h=7, center=false);
-		#translate([0, 5, offset_z]) rotate([90, 0, 0]) cylinder(r=8/2, h=10, center=false);
+		translate([0, 5, offset_z]) rotate([90, 0, 0]) cylinder(r=8/2, h=10, center=false);
 	}
 	translate([0, pulley_width()/2, offset_z]) rotate([90, 0, 0]) crowned_pulley();
 }

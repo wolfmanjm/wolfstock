@@ -26,7 +26,7 @@ belt_width = 6;
 belt_x_l = gt2_pulley_inner_dia/2 + belt_thick/2;
 belt_x_r_upper = -belt_x_l + belt_thick + pulley_diameter();
 belt_x_r_lower = belt_x_l + belt_thick/2;
-belt_z = 7;
+belt_z = thickness+1.2;
 
 module carriage() {
   // Timing belt (up and down).
@@ -45,22 +45,6 @@ module carriage() {
           translate([horn_x, horn_y, horn_thickness/2+horn_offset]) rotate([0, 90, 0])
             cylinder(r1=14, r2=2.5, h=separation/2-horn_x);
         }
-      }
-      // Belt clamps.
-      *difference() {
-        union() {
-          translate([6.5, -2.5, horn_thickness/2+1])
-            cube([14, 7, horn_thickness-2], center=true);
-          translate([10.75, 2.5, horn_thickness/2+1])
-            cube([5.5, 16, horn_thickness-2], center=true);
-        }
-        // Avoid touching diagonal push rods (carbon tube).
-        translate([20, -10, 12.5]) rotate([35, 35, 30])
-          cube([40, 40, 20], center=true);
-      }
-      *for (y = [-12, 7]) {
-        translate([1.25, y, horn_thickness/2+1])
-          cube([7, 8, horn_thickness-2], center=true);
       }
     }
     // Screws for linear slider.

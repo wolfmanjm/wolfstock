@@ -6,7 +6,7 @@ $fn = 100;
 
 // 608
 crownRadius = 13.6;
-pulleyHeight = 9;
+pulleyHeight = 7;
 bearingSize = 22;
 bearingClearing = 0.1; // 22.6mm inside diameter
 innerHole = 9.15;
@@ -28,10 +28,7 @@ module crowned_pulley() {
 	        cylinder(r = crownRadius, h = pulleyHeight);
 	        translate([0, 0, pulleyHeight / 2]) scale([1, 1, .7]) sphere(r=crownRadius);
 	    }
-	    translate([0, 0, 1])
-	        cylinder(r = (bearingSize + bearingClearing) / 2, h = pulleyHeight);
-	    translate([0, 0, -1])
-	        cylinder(r = innerHole, h = pulleyHeight + 2);
+	    translate([0, 0, -1]) cylinder(r = (bearingSize + bearingClearing) / 2, h = pulleyHeight+2);
 	}
 }
 
