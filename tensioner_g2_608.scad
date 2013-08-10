@@ -12,8 +12,8 @@ use <myLibs.scad>
  */
 
 gt2_inner_dia= 12.25;
-offset_x = -19; 
-offset_y = 10-pulley_diameter()/2+gt2_inner_dia/2;
+offset_x = -20; // distance from makerslide
+offset_y = 10-pulley_diameter()/2+gt2_inner_dia/2; // left/right offse
 rotate_z = -90;
 clearance= 2;
 offset_z= 4;
@@ -35,7 +35,7 @@ function tensioner_height()= 22;
 tensioner_608();
 
 // generate a negative fillet for an edge
-module fillet(pos= [0,0,0], radius=3, height=100, fn=16, angle= 0) {                                     
+module fillet(pos= [0,0,0], radius=3, height=100, fn=16, angle= 0) {
    translate(pos) rotate([0,0,angle]) translate([-radius, -radius, -height/2-0.01])
         difference() {
             cube([radius*2, radius*2, height+0.02]);
@@ -105,7 +105,7 @@ module tensioner_608() {
 		}
 		// bearing shaft
 		//translate([0,block_width/2,offset_z+0.5]) rotate([90, 90, 0]) slot(8, 9, 18);
-		translate([0,block_width/2,offset_z]) rotate([90, 90, 0]) hole(8, 18);
+		#translate([0,block_width/2,offset_z]) rotate([90, 90, 0]) hole(8, 19);
 		//translate([0, -12, 0])  cube([50, 20, 50], center=true); // cutaway to see clearance
 	}
 

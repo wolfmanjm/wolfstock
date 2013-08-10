@@ -2,10 +2,10 @@ use <makerslide.scad>
 use <./MCAD/motors.scad>
 use <myLibs.scad>
 use <misumi-parts-library.scad>;
-//use <tensioner_608.scad>
 use <tensioner_g2_608.scad>
 use <carriage_plate_standard_c14005_rev_2.scad>
 use <vwheel_single_bearing_b17001_rev_2.scad>
+use <gt2-carriage.scad>
 
 // set to 1 if using makerslide and set to 0 if using 2040 or vslot
 use_makerslide= 1;
@@ -37,15 +37,15 @@ frame_motor();
 // to align with arms and tweak the thickness
 //%translate([90,0,0]) arms(cutout=0, thickness=6);
 
-module carriage_assy() {
-	wheelelevation= 0;
-	color("silver") translate([0,0,2.5+0.25*25.4]) rotate([0,0,-90]) centeredCarriagePlate();
-    translate([70,-32.7,wheelelevation]) rotate([180,0,0]) vwheel();
-    translate([70, 32.7,wheelelevation]) rotate([180,0,0]) vwheel();
-    translate([-70,32.7,wheelelevation]) rotate([180,0,0]) vwheel();
-    translate([-70,-32.7,wheelelevation]) rotate([180,0,0]) vwheel();
+module carriage_assy(offset) {
+	color("silver") translate([0,0,offset]) rotate([0,0,-90]) centeredCarriagePlate();
+    translate([70,-32.7,0]) rotate([180,0,0]) vwheel();
+    translate([70, 32.7,0]) rotate([180,0,0]) vwheel();
+    translate([-70,32.7,0]) rotate([180,0,0]) vwheel();
+    translate([-70,-32.7,0]) rotate([180,0,0]) vwheel();
 }
 
+offset= 5+2.5+0.25*25.4; // 0.25" spacer + wheel bearings = distance carriage is from face of makerslide
 // show supporting structure
 if (true) {
 	if(use_makerslide == 1) {
@@ -61,8 +61,8 @@ if (true) {
 	}
 	translate([-30, 0, 22]) rotate([0, 90, 0])  color("red") gt2_pulley();
 
-	translate([0, 0, 140])  rotate([0, -90, 0])  carriage_assy();
-	translate([-(5.7+0.25*25.4),0,140]) rotate([90,0,-90]) color("blue") import("stl/carriage-new.stl");
+	translate([0, 0, 140])  rotate([0, -90, 0])  carriage_assy(offset);
+	translate([-(offset+3.2),0,140+40]) rotate([90,0,-90]) color("blue") carriage();
 }
 
 function getBeamOffsetX()= 12;
