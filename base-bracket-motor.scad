@@ -4,6 +4,8 @@ use <myLibs.scad>
 use <misumi-parts-library.scad>;
 //use <tensioner_608.scad>
 use <tensioner_g2_608.scad>
+use <carriage_plate_standard_c14005_rev_2.scad>
+use <vwheel_single_bearing_b17001_rev_2.scad>
 
 // set to 1 if using makerslide and set to 0 if using 2040 or vslot
 use_makerslide= 1;
@@ -35,20 +37,32 @@ frame_motor();
 // to align with arms and tweak the thickness
 //%translate([90,0,0]) arms(cutout=0, thickness=6);
 
+module carriage_assy() {
+	wheelelevation= 0;
+	color("silver") translate([0,0,2.5+0.25*25.4]) rotate([0,0,-90]) centeredCarriagePlate();
+    translate([70,-32.7,wheelelevation]) rotate([180,0,0]) vwheel();
+    translate([70, 32.7,wheelelevation]) rotate([180,0,0]) vwheel();
+    translate([-70,32.7,wheelelevation]) rotate([180,0,0]) vwheel();
+    translate([-70,-32.7,wheelelevation]) rotate([180,0,0]) vwheel();
+}
+
 // show supporting structure
 if (true) {
 	if(use_makerslide == 1) {
-		color("gray") translate([20,0,220/2]) rotate([0, 0, 180]) makerslide(220);
+		color("gray") translate([20,0,300/2]) rotate([0, 0, 180]) makerslide(300);
 	}else{
 		translate([10,0,0]) rotate([90, 0, 0]) hfs2040(220);
 	}
 	%translate([12,34,height/2]) rotate([0,0,60]) hfs2040(100);
 	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2040(100);
-	translate([0, -10, 200]) rotate([0, 0, -90]) { 
+	translate([0, -10, 250]) rotate([0, 0, -90]) {
 		tensioner_608();
 		//rotate([0, 0, 90]) tensioner_support();
 	}
 	translate([-30, 0, 22]) rotate([0, 90, 0])  color("red") gt2_pulley();
+
+	translate([0, 0, 140])  rotate([0, -90, 0])  carriage_assy();
+	translate([-(5.7+0.25*25.4),0,140]) rotate([90,0,-90]) color("blue") import("stl/carriage-new.stl");
 }
 
 function getBeamOffsetX()= 12;
