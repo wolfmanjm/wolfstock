@@ -32,7 +32,7 @@ and 608 bearings for the idlers.
 
 There is an alternate set of stls that make use of gt2 belt. In this case the
 preferred idler is composed of two back to back 695 flanged bearings and the
-tensioner-gt2-F695zz.stl file, but there is also a crownedpulley.stl that fits
+`tensioner-gt2-F695zz.stl` file, but there is also a `crownedpulley.stl` that fits
 over a 608 bearing and the file `tensioner_g2_608.stl` will house that. I have
 found that the crowned pulleys do not seem to keep the belt aligned as they
 are supposed to.
@@ -55,11 +55,11 @@ license, [visit](http://creativecommons.org/licenses/by-sa/3.0/)
 Stls are in the
 [STL directory](https://github.com/wolfmanjm/wolfstock/tree/master/stl)
 
-* Print three base-bracket-motor.stl
-* Print three base-bracket-idler.stl
-* Print three tensioner_608.stl or `tensioner_g2_608.stl` (also the crownedpulley.stl if using the latter) *OR* three tensioner-gt2-F695zz.stl
-* Print one effector.stl
-* Print three carriage-new.stl These bolt onto a carriage that has
+* Print three `base-bracket-motor.stl`
+* Print three `base-bracket-idler.stl`
+* Print three `tensioner_608.stl` *OR* `tensioner_g2_608.stl` (also the `crownedpulley.stl` if using the latter) *OR* three `tensioner-gt2-F695zz.stl`
+* Print one `effector.stl`
+* Print three `carriage-new.stl` *OR* `gt2-carriage.stl` These bolt onto a carriage that has
   20mm hole paterns
   [like this](https://www.inventables.com/technologies/standard-wheel-carriage-plate),
   so check your plates and adjust the scad as necessary.
@@ -104,8 +104,8 @@ Choose one of the following...
 #### GT2 Belt
 * [GT2 Belt](http://www.robotdigg.com/product/10/Open-Ended-6mm-Width-GT2-Belt) $2.00/meter approx 6.3-7 meters $14.00
 * [GT2 toothed pulley 20 Teeth 5mm Bore](http://www.robotdigg.com/product/9/GT2-Pulley-20-Teeth-5mm-Bore) $2.00 3 $6.00
-* 3x 608 bearings and use `tensioner_g2_608.stl` idler and crownedpulley.stl OR
-  6x F695zz flanged bearings and use tensioner-gt2-F695zz.stl, the latter seems to work better, and are
+* 3x 608 bearings and use `tensioner_g2_608.stl` idler and `crownedpulley.stl` OR
+  6x F695zz flanged bearings and use `tensioner-gt2-F695zz.stl`, the latter seems to work better, and are
   [available here](http://www.ebay.com/itm/180915657724) 10 for $9.67 free shipping
 * [Grub screws for pulley](http://www.robotdigg.com/product/17/M3*4-Grub-Screw-PACK-SET-for-Timing-Pulleys) $0.35
 
@@ -141,7 +141,7 @@ The printed carriages do not need the eccentric spacers saving $12
 
 ## Assembly
 
-1. Bolt the side rails in first to form the triangle. REmember to put
+1. Bolt the side rails in first to form the triangle. Remember to put
 enough tslot nuts in the tslots first, also put some in the top and
 side for mounting things later.
 2. Mount the motors next.
