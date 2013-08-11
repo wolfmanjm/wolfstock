@@ -20,17 +20,29 @@ line drive ala original Kossel, or gt2 belts with crown pulleys.
 It has a large frame made from 2040 and 2020 Misumi extrusion using
 mini-kossel style printed brackets.
 
-The default version has 1000mm high Makerslide towers, an 463.4mm
-triangle sides, and arm length of 370mm, which makes for a roughly
-250mm circular build area using Traxxas joints and 400mm build height.
-Use the Kossel Calculator and the lite-frame.scad to play with the
-exact lengths required.
+The default version has 1000mm high Makerslide towers, an 463.4mm triangle
+sides, and arm length of 370mm, which makes for a roughly 250mm circular build
+area using Traxxas joints and 400mm build height. Use the Kossel Calculator
+and the lite-frame.scad to play with the exact lengths required. If you were
+to use mag arms which have more degrees of movement the build area would be
+around 350mm diameter for the above dimensions.
 
-The scad source files are parameterized so the dimensions can be
+The drive system can use Spectra 60lb braided fishing line and machined spools
+and 608 bearings for the idlers.
+
+There is an alternate set of stls that make use of gt2 belt. In this case the
+preferred idler is composed of two back to back 695 flanged bearings and the
+tensioner-gt2-F695zz.stl file, but there is also a crownedpulley.stl that fits
+over a 608 bearing and the file tensioner_g2_608.stl will house that. I have
+found that the crowned pulleys do not seem to keep the belt aligned as they
+are supposed to.
+
+Most scad source files are parameterized so the dimensions can be
 tweaked.
 
-Some of the scad files are derived from Kossel files, most are
-original designs by me.
+Some of the scad files are derived from Kossel files or other scad files, most
+are original designs. The original source of the file is usually cited in the
+code.
 
 This work is licensed under the Creative Commons
 Attribution-ShareAlike 3.0 Unported License. To view a copy of this
@@ -66,7 +78,7 @@ Stls are in the
   the regular ones)
 * 6x 370mm 0.318" (8mm) square carbon fiber tube if using the endcaps to join
   with traxas joints, or round tubing as per Kossel
-* plenty of t nuts and M5 bolts... 
+* plenty of t nuts and M5 bolts...
   lengths M5x16 for the back 18 total, M5x12 for the sides 32 total
 
 
@@ -87,12 +99,14 @@ Choose one of the following...
 #### Fishing Line
 * Spectra 60lb braided fishing line
 * [Drive spools](http://3d.grabercars.com/?product=filament-drive-reel-grooved-delrin-18mm-o-d-for-kossel) $7.95 3 $23.85
-* 608 bearings for idler 3
+* 3x 608 bearings for idler, and use tensioner_608.stl
 
 #### GT2 Belt
 * [GT2 Belt](http://www.robotdigg.com/product/10/Open-Ended-6mm-Width-GT2-Belt) $2.00/meter approx 6.3-7 meters $14.00
 * [GT2 toothed pulley 20 Teeth 5mm Bore](http://www.robotdigg.com/product/9/GT2-Pulley-20-Teeth-5mm-Bore) $2.00 3 $6.00
-* 608 bearings for idler 3
+* 3x 608 bearings and use tensioner_g2_608.stl idler and crownedpulley.stl OR
+  6x F695zz flanged bearings and use tensioner-gt2-F695zz.stl, the latter seems to work better, and are
+  [available from](http://www.ebay.com/itm/180915657724) 10 for $9.67 free shipping
 * [Grub screws for pulley](http://www.robotdigg.com/product/17/M3*4-Grub-Screw-PACK-SET-for-Timing-Pulleys) $0.35
 
 ### Makerslide based
