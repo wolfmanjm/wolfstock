@@ -37,7 +37,7 @@ module M5_bolt(len=10) {
 	}
 }
 
-module belt_clamp() {
+module old_belt_clamp() {
 	// Heavily Modified version of GT2 Zip Tensioner/Coupler by DanMoto
 	length = 19;
 	thickness = 6;
@@ -64,6 +64,17 @@ module belt_clamp() {
 			translate([0, 2, width]) cube([length, teeth_height, 6]);
 		}
 	}
+}
+
+belt_clamp_radius= 3;
+module belt_clamp() {
+	ht= 8;
+	rd= belt_clamp_radius;
+	translate([-rd, 0, 0]) {
+		cylinder(r=rd, h=ht, center=false);
+		translate([0, 0, ht-0.05]) cylinder(r1=rd, r2=rd+2, h=3, center=false);
+	}
+
 }
 
 module carriage() {
@@ -97,9 +108,16 @@ module carriage() {
 				}
 			}
 
-			translate([belt_x_r_upper, 20.5, thickness-0.05]) belt_clamp();
-			translate([belt_x_r_lower, -1.5, thickness-0.05]) belt_clamp();
+			translate([belt_x_r_upper-belt_thick/2, 15, thickness-0.05]) belt_clamp();
+			translate([belt_x_r_lower-belt_thick/2, -15, thickness-0.05]) belt_clamp();
 		}
+
+		// screws for belt termination
+		translate([belt_x_r_upper-belt_thick/2-belt_clamp_radius, 15, 3.3]) hole(3, 20);
+		translate([belt_x_r_lower-belt_thick/2-belt_clamp_radius, -15, 3.3]) hole(3, 30);
+		// inset bolt heads on bottom
+		translate([belt_x_r_upper-belt_thick/2-belt_clamp_radius, 15, -0.1]) hole(6, 3);
+		translate([belt_x_r_lower-belt_thick/2-belt_clamp_radius, -15, -0.1]) hole(6, 3);
 
 		// Screwholes and nut traps for linear slider.
 		for (x = [-10, 10]) {
@@ -126,5 +144,5 @@ module carriage() {
 
 carriage();
 
-%translate([0,-45,-3.175]) rotate([0,0,0]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
+//%translate([0,-45,-3.175]) rotate([0,0,0]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
 //%translate([0,0,-3.175]) rotate([0,0,90]) translate([-90/2,-160/2,0]) standard_wheel_carriage_plate();
