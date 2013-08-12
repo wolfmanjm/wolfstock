@@ -2,8 +2,8 @@ use <makerslide.scad>
 use <./MCAD/motors.scad>
 use <myLibs.scad>
 use <misumi-parts-library.scad>;
-use <tensioner_g2_608.scad>
-//use <tensioner-gt2-F695zz.scad>
+//use <tensioner_g2_608.scad>
+use <tensioner-gt2-F695zz.scad>
 use <carriage_plate_standard_c14005_rev_2.scad>
 use <vwheel_single_bearing_b17001_rev_2.scad>
 use <gt2-carriage.scad>
@@ -57,8 +57,8 @@ if (true) {
 	%translate([12,34,height/2]) rotate([0,0,60]) hfs2040(100);
 	%translate([12,-34,height/2]) rotate([0,0,120]) hfs2040(100);
 	translate([0, -10, 250]) rotate([0, 0, -90]) {
-		tensioner_608();
-		//tensioner_695();
+		//tensioner_608();
+		tensioner_695();
 		//rotate([0, 0, 90]) tensioner_support();
 	}
 	translate([-30, 0, 22]) rotate([0, 90, 0])  color("red") gt2_pulley();

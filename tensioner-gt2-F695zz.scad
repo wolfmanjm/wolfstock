@@ -11,7 +11,8 @@ bearingFlangeOD= 15;
 bearingFlangeWidth= 1;
 
 function pulley_width()= bearingWidth;
-function pulley_diameter()= bearingFlangeOD;
+function pulley_OD_diameter()= bearingFlangeOD;
+function pulley_diameter()= bearingOD;
 
 
 gt2_inner_dia= 12.25;
@@ -86,14 +87,14 @@ module end() {
 module tensioner_body() {
 	difference() {
 		union() {
-			cube([pulley_width()+thick, pulley_diameter()+belt_thick+thick/2, tensioner_height()], center=true);
-			translate([0, -(pulley_diameter()+belt_thick+thick/2)/2+0.1, 0]) end();
-			translate([0, (pulley_diameter()+belt_thick+thick/2)/2-0.1, 0]) rotate([0, 0, 180])  end();
+			cube([pulley_width()+thick, pulley_OD_diameter()+belt_thick+thick/2, tensioner_height()], center=true);
+			translate([0, -(pulley_OD_diameter()+belt_thick+thick/2)/2+0.1, 0]) end();
+			translate([0, (pulley_OD_diameter()+belt_thick+thick/2)/2-0.1, 0]) rotate([0, 0, 180])  end();
 		}
 
 		translate([0, 0, offset_z]) {
 			// bearing
-			rotate([0, 90, 0]) cylinder(r=(pulley_diameter()+clearance)/2, h=pulley_width()+clearance, center=true, $fn=60);
+			rotate([0, 90, 0]) cylinder(r=(pulley_OD_diameter()+clearance)/2, h=pulley_width()+clearance, center=true, $fn=60);
 			// shaft
 			//#translate([-14/2,0,0]) rotate([0, 90, 0]) hole(8, 14);
 		}
@@ -102,7 +103,7 @@ module tensioner_body() {
 		translate([0, -bearingOD/2-belt_thick/2, 0]) cube(size=[pulley_width()+clearance, belt_thick+belt_clearance, 40], center=true);
 
 		// clear top
-		translate([0, 0, tensioner_height()/2])  cube(size=[pulley_width()+clearance, pulley_diameter(), 5], center=true);
+		translate([0, 0, tensioner_height()/2])  cube(size=[pulley_width()+clearance, pulley_OD_diameter(), 5], center=true);
 	}
 }
 
