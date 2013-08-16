@@ -77,7 +77,8 @@ Stls are in the
   spacers per carriage and 3x regular spacers. (some wheels come with
   the regular ones)
 * 6x 370mm 0.318" (8mm) square carbon fiber tube if using the endcaps to join
-  with traxas joints, or round tubing as per Kossel
+  with traxas joints, or round tubing as per Kossel like these from
+  [Goodwinds](http://goodwinds.com/20015.html), where the traxxas joints may slip in with some hot glue
 * plenty of t nuts and M5 bolts...
   lengths M5x16 for the back 18 total, M5x12 for the sides 32 total
 
