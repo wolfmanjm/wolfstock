@@ -136,9 +136,17 @@ Sub Total: $133.20
 
 Sub Total: $150.60
 
+### Printed carriage for Makerslide or Open Rail
+For the cheapeast solution print `carriage-plate.stl` and just buy the v wheels.
+This saves having to get the expensive aluminum plates and eccentric spacers.
+That saves $36 on the open rail version and a lt more on the makerslide version.
+
+* [OpenBuilds Dual V Wheel Kit - Delrin](http://openbuildspartstore.com/openbuilds-dual-v-wheel-kit-delrin/) $3.85 12 $46.20
+
+
 ### Notes
-You can use a printed carriage for each tower, saving about $30
-The printed carriages do not need the eccentric spacers saving $12
+You can use the printed carriage for each tower, saving about $36 or more
+
 
 ## Assembly
 
