@@ -92,10 +92,13 @@ module plate_with_wheels() {
 
 	// show V Wheels
 	rotate([0,90,0]) for(p=wheelpos) translate(p + [0,-wheel_separation/2,0]) v_wheel();
+
+	// show bushing
+	rotate([0,90,0]) translate([0, 0, bushing_ht-pillarht])  for(p=wheelpos) translate(p + [0,-wheel_separation/2,0]) wheel_pillar();
 }
 
 module wheel_pillar(){
-	translate([0,0,-0.1]) cylinder(r2=8/2, r1= 18/2, h=pillarht+0.1);
+	cylinder(r=bushing_dia/2, h=bushing_ht);
 }
 
 module base() {
