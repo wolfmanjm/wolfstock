@@ -47,7 +47,7 @@ module case() {
 	// for pins
 	union() {
 		base();
-		for(p= holes) #translate([p[0], p[1], ht-0.1]) cylinder(r=(hole_dia-0.5)/2, h=board_thickness*2, $fn=64);
+		for(p= holes) #translate([p[0], p[1], ht-0.1]) cylinder(r1= hole_dia/2+0.5, r2=(hole_dia-0.5)/2, h=board_thickness*2, $fn=64);
 	}
 }
 
