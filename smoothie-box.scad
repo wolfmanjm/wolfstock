@@ -27,20 +27,27 @@ wall_thickness= 2.1; // wall thickness
 ht= standoff_ht+base_thickness;
 
 module base() {
-	difference() {
-		rounded_base(w+rounded, l+rounded, rounded, ht);
-		translate([0, 0, base_thickness]) rounded_base(w+rounded-wall_thickness, l+rounded-wall_thickness, rounded, ht);
-	}
+	union() {
+		difference() {
+			rounded_base(w+rounded, l+rounded, rounded, ht);
+			translate([0, 0, base_thickness]) rounded_base(w+rounded-wall_thickness, l+rounded-wall_thickness, rounded, ht);
+		}
 
-	for(p= holes) {
-		translate([p[0],p[1],base_thickness]) cylinder(r=standoff_od/2, h=standoff_ht);
+		for(p= holes) {
+			translate([p[0],p[1],base_thickness]) cylinder(r=standoff_od/2, h=standoff_ht);
+		}
 	}
 }
 
 module case() {
-	difference() {
+	// difference() { // for screw holes
+	// 	base();
+	// 	for(p= holes) #translate([p[0], p[1], -20/2]) hole(standoff_id, 20);
+	// }
+	// for pins
+	union() {
 		base();
-		for(p= holes) #translate([p[0], p[1], -20/2]) hole(standoff_id, 20);
+		for(p= holes) #translate([p[0], p[1], ht-0.1]) cylinder(r=(hole_dia-0.5)/2, h=board_thickness*2, $fn=64);
 	}
 }
 

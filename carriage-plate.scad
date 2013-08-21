@@ -29,7 +29,7 @@ belt_width = 6;
 belt_x_l = gt2_pulley_inner_dia/2 + belt_thick/2;
 belt_x_r_upper = -belt_x_l + belt_thick + pulley_diameter();
 belt_x_r_lower = belt_x_l + belt_thick/2;
-belt_z = thickness+1.2;
+belt_z = thickness+6;
 
 // render it for model
 //carriageModel();
@@ -142,7 +142,7 @@ module plate_main(print=1) {
 	}
 }
 
-belt_clamp_radius= 3;
+belt_clamp_radius= 4;
 module belt_clamp() {
 	ht= 15;
 	rd= belt_clamp_radius;
@@ -182,6 +182,7 @@ module carriage(print=0) {
 				}
 			}
 
+			translate([0, horn_y+1,thickness-0.5+5/2]) cube([separation-14, 14, 5], center=true);
 			translate([belt_x_r_upper-belt_thick/2, clamp_y, thickness-0.05]) belt_clamp();
 			translate([belt_x_r_lower-belt_thick/2, -clamp_y, thickness-0.05]) belt_clamp();
 		}
