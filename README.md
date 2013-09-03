@@ -64,6 +64,7 @@ Stls are in the
   20mm hole paterns
   [like this](https://www.inventables.com/technologies/standard-wheel-carriage-plate),
   so check your plates and adjust the scad as necessary.
+* Effector mounted extruder from http://www.thingiverse.com/thing:42112 with pg35l Stepper from http://www.ultibots.com/ (I use some aluminum stadoffs to raise the extruder about an inch.
 
 ### Extrusion and Vitamins
 * 3x 1m lengths of 2040 Makerslide, OR 3x 1m lengths of Misumi 2040 and
