@@ -14,6 +14,7 @@ towers and the carriages, and accomodating larger bed and height.
 * [Printing Tornado vase](http://www.youtube.com/watch?v=ChUlHnQ6QRw)
 * [Printing](http://youtu.be/xLpwUxT9Mxs)
 * [Swirling Urn print](http://flic.kr/p/fC9EcJ)
+* [GT2 driven tower and printed carriage](http://youtu.be/qPsmmmQ1G40)
 
 This is a Makerslide and Misumi based frame, using Spectra fishing
 line drive ala original Kossel, or gt2 belts with crown pulleys.
