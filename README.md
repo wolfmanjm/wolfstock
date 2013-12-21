@@ -160,6 +160,8 @@ side for mounting things later.
 3. Insert the Makerslide into the holes, use a rubber mallet to get the corners on the makerslide, but be gentle.
 4. bolt the makerslide from the back.
 5. do the same for the top, but remember to put the idlers in the track first
+6. Idlers slide into the from slot of the makerslide or vslot, and a long bolt goes through the top mount into the idler. tightening the bolt pulls the idler up thus tightening the spectra or belt. [Example](http://flic.kr/p/iu4RYS)
+7. Endstops attach to the back of the makerslide and microswitch is at the side. [Example1](http://flic.kr/p/iu5h2U) [Example2](http://flic.kr/p/iu4MxD)
 
 
 # License

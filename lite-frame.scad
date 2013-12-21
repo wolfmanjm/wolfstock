@@ -30,7 +30,7 @@ echo(str("Beam length= ", beamLength));
 echo("centerRadius= ", centerRadius, centerTopY);
 echo("centerBottomY= ", centerBottomY, midlineY-centerTopY);
 echo("Diagonal Arm= ", triangleLength*0.8, printTriangle*0.8);
-echo(str("DELTA_SMOOTH_ROD_OFFSET = ", centerTopY));	
+echo(str("DELTA_SMOOTH_ROD_OFFSET = ", centerTopY));
 // frame triangle
 %rotate([0,0,0]) translate([0, -centerBottomY, 0]) polygon(points=[[-triangleLength/2,0],[0,offsetY(triangleLength)],[triangleLength/2,0]], paths=[[0,1,2]]);
 
@@ -47,7 +47,7 @@ armsp= 57.7;
 al= armLength;
 tr= (centerTopY-30)/2;
 if(true) {
-	color("black") translate([10, centerTopY, slideht-40]) rotate([0, 0, 0]) { 
+	color("black") translate([10, centerTopY, slideht-40]) rotate([0, 0, 0]) {
 		tensioner_608();
 	}
 
@@ -59,7 +59,7 @@ if(true) {
 	// arms
 	color("black") translate([-armsp/2,centerTopY-14.5-6.5,carriageHt+20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
 	color("black") translate([armsp/2,centerTopY-14.5-6.5,carriageHt+20]) rotate([-33,0,0]) translate([0,0,-al]) cylinder(r=armr, h= al);
-	
+
 	// effector
 	color("red") translate([0,0,bedht+200]) rotate([0,0,60]) import("stl/effector.stl");
 	color("blue") translate([0,45.85,bedht+200]) rotate([90,0,90]) cylinder(r=3/2-0.2, h=100, center=true, $fn= 32);
@@ -136,7 +136,7 @@ module bed_bracket() {
 		// printed bracket
 		translate([-70, -centerBottomY-beamOffset+l/2-10, 45]) {
 			difference() {
-				cube(size=[w, l, 4], center=true);	
+				cube(size=[w, l, 4], center=true);
 				#translate([-10,-l/2+10,-4]) hole(5, 8);
 				#translate([10,-l/2+10,-4]) hole(5, 8);
 			}
@@ -148,7 +148,7 @@ module bed_bracket() {
 				translate([-70, -centerBottomY-beamOffset+10, 45/2+10])	hfs2020(50);
 				translate([70, -centerBottomY-beamOffset+10, 45/2+10])	hfs2020(50);
 			}
-		}		
+		}
 	}
 }
 
