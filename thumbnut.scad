@@ -15,7 +15,7 @@ wing_thin_d = 5;
 wing_h = 7;
 
 // Nut diameter (from corner to corner). eg. 14.6 for a M8 or 8 for a M4. Zero to disable.
-nut_d = 14.2;
+nut_d = 14.6; // 14.2; // 5/16
 
 // Hex nut vs. just a cylindrical hole
 hex_nut = 1; //[1:Hexagonal,0:Cylindrical]

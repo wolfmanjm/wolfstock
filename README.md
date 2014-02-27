@@ -1,7 +1,7 @@
 wolfstock
 =========
 
-__NOTE__ This is a Work In Progress
+This design has been my primary printer for over 6 months, and seems quite stable now.
 
 __NOTE__ The old T frame/Ostoc version of this has been deprecated and can be found in the branch [tframe](https://github.com/wolfmanjm/wolfstock/tree/tframe)
 
