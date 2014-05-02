@@ -48,7 +48,7 @@ Switch();
 
 // model a limiting switch
 // The switch is shown in the position where it is just actueted.
-// This limiting position is at y=yswp=11mm, z=hswp=14mm, 
+// This limiting position is at y=yswp=11mm, z=hswp=14mm,
 // relative to the center of the base ot the switch
 
 module Switch(){
@@ -87,9 +87,9 @@ module Limiter(){
 }
 
 // holes for mounting of the switch
-module SwitchHoles(){
-		translate([0,dysw,hhsw])rotate(90,yaxis)cylinder(xsw+40+2*e,rsw,rsw,true);
-		translate([0,-dysw,hhsw])rotate(90,yaxis)cylinder(xsw++40+2*e,rsw,rsw,true);
+module SwitchHoles(l=40){
+		translate([0,dysw,hhsw])rotate(90,yaxis)cylinder(xsw+l+2*e,rsw,rsw,true);
+		translate([0,-dysw,hhsw])rotate(90,yaxis)cylinder(xsw+l+2*e,rsw,rsw,true);
 }
 
 // cut whateverer follows at the plane x=0
