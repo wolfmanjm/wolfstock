@@ -42,3 +42,5 @@ difference() {
 
 %cylinder(r= radius, h=2);
 %rotate([0,90,180]) translate([0, radius, 0]) cylinder(r= 3/2, h= separation, center=true);
+
+//translate([0, 0, 10])  import("new-effector.stl");
