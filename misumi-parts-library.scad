@@ -12,8 +12,8 @@ module hfs2020(l) {
 	}
 }
 
-module hfs60() {
-	translate([0,0,100]) import("misumi/hfs60a5_20_100.stl");
+module hfs60(l) {
+	rotate([0,0,0]) translate([0,0,l]) scale([1,1,l/100]) import("misumi/hfs60a5_20_100.stl");
 }
 
 module hblss5() {
@@ -56,7 +56,7 @@ module tbracket() {
 	// HPTTD5
 	translate([-110/2, 0,0]) difference() {
 		 union() {
-			color("blue"){ 
+			color("blue"){
 				cube([110, 38, 2.3]);
 				translate([110/2-38/2,-38,0]) cube([38, 80-38, 2.3]);
 			}
@@ -80,7 +80,7 @@ module tbracket1() {
 	thick= 4; // printable
 	translate([-100/2, 0,0]) difference() {
 		 union() {
-			color("blue"){ 
+			color("blue"){
 				cube([100, 18, thick]);
 				translate([100/2-18/2,18,0]) cube([18, 90-18, thick]);
 			}

@@ -24,6 +24,13 @@ module base() {
 	}
 }
 
+module negative_base() {
+	difference() {
+		cube([w-1, l-1, 10], center=true);
+		base();
+	}
+}
+
 module flange() {
 	difference() {
 		translate([-w/2, -h, 0]) cube([w, h, ht]);
@@ -44,6 +51,16 @@ module side() {
 	}
 }
 
+module stand() {
+
+	difference() {
+		cylinder(r1=w, r2=w/2+8, h=ht);
+		translate([0, 0, -h+0.1])  cylinder(r1=w-2, r2=w/2+8-2, h=ht);
+		#translate([0, w-2, 0])  rotate([90, 0, 0])  cylinder(r=10/2, h=10, center=true);
+	}
+
+}
+
 module holder() {
 	union() {
 		base();
@@ -53,5 +70,16 @@ module holder() {
 	}
 }
 
-holder();
+module holderstand() {
+	difference() {
+		translate([0,0,-ht+h/2-0.1]) stand();
+		negative_base();
+	}
+}
+
+//holder();
+rotate([0, 180, 0])  holderstand();
+//stand();
+//negative_base();
+
 %translate([0,0,0]) rotate([180,0,0]) eswitch();
